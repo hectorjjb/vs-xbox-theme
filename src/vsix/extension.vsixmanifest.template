@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  VSIX manifest. {{TOKEN}} placeholders are replaced by scripts/build-vsix.mjs.
+
+  VS 2026 requirements (verified against MadsKristensen/BlueSteel reference):
+    - Per-architecture <InstallationTarget> with <ProductArchitecture>.
+    - Identity Id must include a stable GUID suffix for uniqueness.
+    - Sibling manifest.json + catalog.json files (generated alongside this).
+-->
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="{{IDENTITY_ID}}" Version="{{VERSION}}" Language="en-US" Publisher="{{PUBLISHER}}" />
+    <DisplayName>{{DISPLAY_NAME}}</DisplayName>
+    <Description xml:space="preserve">{{DESCRIPTION}}</Description>
+    <MoreInfo>{{MORE_INFO_URL}}</MoreInfo>
+    <License>LICENSE.txt</License>
+    <Icon>images/icon.png</Icon>
+    <PreviewImage>images/preview.png</PreviewImage>
+    <Tags>theme, color theme, xbox, dark, light, high contrast, accent, green</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9, 19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9, 19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.9, 19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.9, 19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.9, 19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.9, 19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+{{ASSETS}}
+  </Assets>
+</PackageManifest>

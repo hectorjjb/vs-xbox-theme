@@ -1,0 +1,12 @@
+{
+  "_doc": "Per-flavor metadata. fallbackId points to the built-in VS 2026 base theme (Light or Dark) that this theme inherits all non-overridden tokens from. GUIDs from docs: Light = {de3dbbcd-f642-433c-8353-8f1df4370aba}, Dark = {1ded0138-47ce-435e-84ef-9ec1f439b749}. extraRoles defines per-flavor palette additions: accentFg = readable text color drawn ON TOP of the green accent (dark text for bright greens, light text for dark greens).",
+  "id": "xbox-series-x",
+  "name": "Xbox Series X",
+  "guid": "{B0F3E6A1-7C2D-4F1A-9E8B-1C5D2F4A6B8E}",
+  "type": "dark",
+  "fallbackId": "{1ded0138-47ce-435e-84ef-9ec1f439b749}",
+  "paletteKey": "seriesX",
+  "extraRoles": {
+    "accentFg": "#0d100a"
+  }
+}

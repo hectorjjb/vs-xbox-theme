@@ -1,0 +1,12 @@
+{
+  "_doc": "Xbox 360 — light theme. Inherits from built-in Light. accentFg = white because Xbox 360's green (#107c10) is dark.",
+  "id": "xbox-360",
+  "name": "Xbox 360",
+  "guid": "{D5E8C2A4-1F7B-4D3E-9A6C-8B2F5E1D4A7C}",
+  "type": "light",
+  "fallbackId": "{de3dbbcd-f642-433c-8353-8f1df4370aba}",
+  "paletteKey": "xbox360",
+  "extraRoles": {
+    "accentFg": "#ffffff"
+  }
+}

@@ -1,0 +1,974 @@
+{
+  "Decorative": {
+    "categoryGuid": "82c13048-cda9-485a-8d48-4081a585bbb9",
+    "categoryName": "?82c13048-cda9-485a-8d48-4081a585bbb9",
+    "colorCount": 106,
+    "colors": {
+      "BluePrimary": {
+        "bg": "#3595deff",
+        "fg": null
+      },
+      "BluePrimaryAlt": {
+        "bg": "#5caae5ff",
+        "fg": null
+      },
+      "BlueQuaternary": {
+        "bg": "#3595de66",
+        "fg": null
+      },
+      "BlueQuinary": {
+        "bg": "#3595de33",
+        "fg": null
+      },
+      "BlueSecondary": {
+        "bg": "#3595decc",
+        "fg": null
+      },
+      "BlueSenary": {
+        "bg": "#3595de1f",
+        "fg": null
+      },
+      "BlueTertiary": {
+        "bg": "#3595de99",
+        "fg": null
+      },
+      "DarkBluePrimary": {
+        "bg": "#4178a3ff",
+        "fg": null
+      },
+      "DarkBluePrimaryAlt": {
+        "bg": "#92b5d1ff",
+        "fg": null
+      },
+      "DarkBlueQuaternary": {
+        "bg": "#4178a366",
+        "fg": null
+      },
+      "DarkBlueQuinary": {
+        "bg": "#4178a333",
+        "fg": null
+      },
+      "DarkBlueSecondary": {
+        "bg": "#4178a3cc",
+        "fg": null
+      },
+      "DarkBlueSenary": {
+        "bg": "#4178a31f",
+        "fg": null
+      },
+      "DarkBlueTertiary": {
+        "bg": "#4178a399",
+        "fg": null
+      },
+      "DarkRedPrimary": {
+        "bg": "#ac4f5eff",
+        "fg": null
+      },
+      "DarkRedPrimaryAlt": {
+        "bg": "#d69ca5ff",
+        "fg": null
+      },
+      "DarkRedQuaternary": {
+        "bg": "#ac4f5e66",
+        "fg": null
+      },
+      "DarkRedQuinary": {
+        "bg": "#ac4f5e33",
+        "fg": null
+      },
+      "DarkRedSecondary": {
+        "bg": "#ac4f5ecc",
+        "fg": null
+      },
+      "DarkRedSenary": {
+        "bg": "#ac4f5e1f",
+        "fg": null
+      },
+      "DarkRedTertiary": {
+        "bg": "#ac4f5e99",
+        "fg": null
+      },
+      "GrapePrimary": {
+        "bg": "#b55fc1ff",
+        "fg": null
+      },
+      "GrapePrimaryAlt": {
+        "bg": "#d9a7e0ff",
+        "fg": null
+      },
+      "GrapeQuaternary": {
+        "bg": "#b65fc266",
+        "fg": null
+      },
+      "GrapeQuinary": {
+        "bg": "#b65fc233",
+        "fg": null
+      },
+      "GrapeSecondary": {
+        "bg": "#b65fc2cc",
+        "fg": null
+      },
+      "GrapeSenary": {
+        "bg": "#b65fc21f",
+        "fg": null
+      },
+      "GrapeTertiary": {
+        "bg": "#b65fc299",
+        "fg": null
+      },
+      "GreenPrimary": {
+        "bg": "#359b35ff",
+        "fg": null
+      },
+      "GreenPrimaryAlt": {
+        "bg": "#54b054ff",
+        "fg": null
+      },
+      "GreenQuaternary": {
+        "bg": "#359b3566",
+        "fg": null
+      },
+      "GreenQuinary": {
+        "bg": "#359b3533",
+        "fg": null
+      },
+      "GreenSecondary": {
+        "bg": "#359b35cc",
+        "fg": null
+      },
+      "GreenSenary": {
+        "bg": "#359b351f",
+        "fg": null
+      },
+      "GreenTertiary": {
+        "bg": "#359b3599",
+        "fg": null
+      },
+      "GreyPrimary": {
+        "bg": "#515151ff",
+        "fg": null
+      },
+      "GreyPrimaryAlt": {
+        "bg": "#888888ff",
+        "fg": null
+      },
+      "GreyQuaternary": {
+        "bg": "#51515166",
+        "fg": null
+      },
+      "GreyQuinary": {
+        "bg": "#51515133",
+        "fg": null
+      },
+      "GreySecondary": {
+        "bg": "#515151cc",
+        "fg": null
+      },
+      "GreySenary": {
+        "bg": "#5151511f",
+        "fg": null
+      },
+      "GreyTertiary": {
+        "bg": "#51515199",
+        "fg": null
+      },
+      "LavenderPrimary": {
+        "bg": "#9183eeff",
+        "fg": null
+      },
+      "LavenderPrimaryAlt": {
+        "bg": "#d2ccf8ff",
+        "fg": null
+      },
+      "LavenderQuaternary": {
+        "bg": "#9183ee66",
+        "fg": null
+      },
+      "LavenderQuinary": {
+        "bg": "#9183ee33",
+        "fg": null
+      },
+      "LavenderSecondary": {
+        "bg": "#9183eecc",
+        "fg": null
+      },
+      "LavenderSenary": {
+        "bg": "#9183ee1f",
+        "fg": null
+      },
+      "LavenderTertiary": {
+        "bg": "#9183ee99",
+        "fg": null
+      },
+      "LightBluePrimary": {
+        "bg": "#65ade5ff",
+        "fg": null
+      },
+      "LightBluePrimaryAlt": {
+        "bg": "#83bdebff",
+        "fg": null
+      },
+      "LightBlueQuaternary": {
+        "bg": "#65aee666",
+        "fg": null
+      },
+      "LightBlueQuinary": {
+        "bg": "#65aee633",
+        "fg": null
+      },
+      "LightBlueSecondary": {
+        "bg": "#65aee6cc",
+        "fg": null
+      },
+      "LightBlueSenary": {
+        "bg": "#65aee61f",
+        "fg": null
+      },
+      "LightBlueTertiary": {
+        "bg": "#65aee699",
+        "fg": null
+      },
+      "NeutralPrimary": {
+        "bg": "#ccccccff",
+        "fg": null
+      },
+      "NeutralPrimaryAlt": {
+        "bg": "#808080ff",
+        "fg": null
+      },
+      "NeutralQuaternary": {
+        "bg": "#c3c3c366",
+        "fg": null
+      },
+      "NeutralQuinary": {
+        "bg": "#c3c3c333",
+        "fg": null
+      },
+      "NeutralSecondary": {
+        "bg": "#c3c3c3cc",
+        "fg": null
+      },
+      "NeutralSenary": {
+        "bg": "#c3c3c31f",
+        "fg": null
+      },
+      "NeutralSeptenary": {
+        "bg": "#ffffff85",
+        "fg": null
+      },
+      "NeutralTertiary": {
+        "bg": "#c3c3c399",
+        "fg": null
+      },
+      "OrangePrimary": {
+        "bg": "#f98845ff",
+        "fg": null
+      },
+      "OrangePrimaryAlt": {
+        "bg": "#faa06bff",
+        "fg": null
+      },
+      "OrangeQuaternary": {
+        "bg": "#f9884566",
+        "fg": null
+      },
+      "OrangeQuinary": {
+        "bg": "#f9884533",
+        "fg": null
+      },
+      "OrangeSecondary": {
+        "bg": "#f98845cc",
+        "fg": null
+      },
+      "OrangeSenary": {
+        "bg": "#f988451f",
+        "fg": null
+      },
+      "OrangeTertiary": {
+        "bg": "#f9884599",
+        "fg": null
+      },
+      "PinkPrimary": {
+        "bg": "#e750b0ff",
+        "fg": null
+      },
+      "PinkPrimaryAlt": {
+        "bg": "#ea66baff",
+        "fg": null
+      },
+      "PinkQuaternary": {
+        "bg": "#e750b066",
+        "fg": null
+      },
+      "PinkQuinary": {
+        "bg": "#e750b033",
+        "fg": null
+      },
+      "PinkSecondary": {
+        "bg": "#e750b0cc",
+        "fg": null
+      },
+      "PinkSenary": {
+        "bg": "#e750b01f",
+        "fg": null
+      },
+      "PinkTertiary": {
+        "bg": "#e750b099",
+        "fg": null
+      },
+      "PurplePrimary": {
+        "bg": "#9470bdff",
+        "fg": null
+      },
+      "PurplePrimaryAlt": {
+        "bg": "#c6b1deff",
+        "fg": null
+      },
+      "PurpleQuaternary": {
+        "bg": "#9470bd66",
+        "fg": null
+      },
+      "PurpleQuinary": {
+        "bg": "#9470bd33",
+        "fg": null
+      },
+      "PurpleSecondary": {
+        "bg": "#9470bdcc",
+        "fg": null
+      },
+      "PurpleSenary": {
+        "bg": "#9470bd1f",
+        "fg": null
+      },
+      "PurpleTertiary": {
+        "bg": "#9470bd99",
+        "fg": null
+      },
+      "RedPrimary": {
+        "bg": "#d33f4cff",
+        "fg": null
+      },
+      "RedPrimaryAlt": {
+        "bg": "#dc626dff",
+        "fg": null
+      },
+      "RedQuaternary": {
+        "bg": "#d33f4c66",
+        "fg": null
+      },
+      "RedQuinary": {
+        "bg": "#d33f4c33",
+        "fg": null
+      },
+      "RedSecondary": {
+        "bg": "#d33f4ccc",
+        "fg": null
+      },
+      "RedSenary": {
+        "bg": "#d33f4c1f",
+        "fg": null
+      },
+      "RedTertiary": {
+        "bg": "#d33f4c99",
+        "fg": null
+      },
+      "TealPrimary": {
+        "bg": "#2aa0a4ff",
+        "fg": null
+      },
+      "TealPrimaryAlt": {
+        "bg": "#4cb4b7ff",
+        "fg": null
+      },
+      "TealQuaternary": {
+        "bg": "#2aa0a466",
+        "fg": null
+      },
+      "TealQuinary": {
+        "bg": "#2aa0a433",
+        "fg": null
+      },
+      "TealSecondary": {
+        "bg": "#2aa0a4cc",
+        "fg": null
+      },
+      "TealSenary": {
+        "bg": "#2aa0a41f",
+        "fg": null
+      },
+      "TealTertiary": {
+        "bg": "#2aa0a499",
+        "fg": null
+      },
+      "YellowPrimary": {
+        "bg": "#efb839ff",
+        "fg": null
+      },
+      "YellowPrimaryAlt": {
+        "bg": "#f2c661ff",
+        "fg": null
+      },
+      "YellowQuaternary": {
+        "bg": "#efb93966",
+        "fg": null
+      },
+      "YellowQuinary": {
+        "bg": "#efb93933",
+        "fg": null
+      },
+      "YellowSecondary": {
+        "bg": "#efb939cc",
+        "fg": null
+      },
+      "YellowSenary": {
+        "bg": "#efb9391f",
+        "fg": null
+      },
+      "YellowTertiary": {
+        "bg": "#efb93999",
+        "fg": null
+      }
+    }
+  },
+  "EditorOverride": {
+    "categoryGuid": "656339d7-0e39-43e2-98aa-becc3f87ffa5",
+    "categoryName": "?656339d7-0e39-43e2-98aa-becc3f87ffa5",
+    "colorCount": 8,
+    "colors": {
+      "PopupBackground": {
+        "bg": "#2e2e2eff",
+        "fg": null
+      },
+      "PopupBorder": {
+        "bg": "#424242ff",
+        "fg": null
+      },
+      "PopupHyperlink": {
+        "bg": "#83beebff",
+        "fg": null
+      },
+      "PopupSelectedBackground": {
+        "bg": "#424242ff",
+        "fg": null
+      },
+      "PopupSelectedText": {
+        "bg": "#fafafaff",
+        "fg": null
+      },
+      "PopupShadow": {
+        "bg": "#0000004d",
+        "fg": null
+      },
+      "PopupSubtleText": {
+        "bg": "#a1a1a1ff",
+        "fg": null
+      },
+      "PopupText": {
+        "bg": "#fafafaff",
+        "fg": null
+      }
+    }
+  },
+  "Shell": {
+    "categoryGuid": "73708ded-2d56-4aad-b8eb-73b20d3f4bff",
+    "categoryName": "Shell",
+    "colorCount": 94,
+    "colors": {
+      "AccentFillAlt": {
+        "bg": "#d2ccf8ff",
+        "fg": null
+      },
+      "AccentFillDefault": {
+        "bg": "#9184eeff",
+        "fg": null
+      },
+      "AccentFillDisabled": {
+        "bg": "#ffffff28",
+        "fg": null
+      },
+      "AccentFillSecondary": {
+        "bg": "#9184eee5",
+        "fg": null
+      },
+      "AccentFillSelectedTextBackground": {
+        "bg": "#005fb7ff",
+        "fg": null
+      },
+      "AccentFillSelectedTextBackgroundSubtle": {
+        "bg": "#60cdff66",
+        "fg": null
+      },
+      "AccentFillSenary": {
+        "bg": "#9184ee1f",
+        "fg": null
+      },
+      "AccentFillTertiary": {
+        "bg": "#9184eecc",
+        "fg": null
+      },
+      "AccentTextFillDisabled": {
+        "bg": "#ffffff5d",
+        "fg": null
+      },
+      "AccentTextFillPrimary": {
+        "bg": "#d2ccf8ff",
+        "fg": null
+      },
+      "AccentTextFillSecondary": {
+        "bg": "#d2ccf8ff",
+        "fg": null
+      },
+      "AccentTextFillTertiary": {
+        "bg": "#a79cf1ff",
+        "fg": null
+      },
+      "CardBackgroundFillDefault": {
+        "bg": "#ffffff0d",
+        "fg": null
+      },
+      "CardBackgroundFillSecondary": {
+        "bg": "#ffffff08",
+        "fg": null
+      },
+      "CardBackgroundFillTertiary": {
+        "bg": "#ffffff12",
+        "fg": null
+      },
+      "CardStrokeDefault": {
+        "bg": "#0000001a",
+        "fg": null
+      },
+      "CardStrokeDefaultSolid": {
+        "bg": "#1c1c1cff",
+        "fg": null
+      },
+      "CardStrokeDefaultSolidAlt": {
+        "bg": "#0a0a0aff",
+        "fg": null
+      },
+      "ControlAltFillDisabled": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "ControlAltFillQuaternary": {
+        "bg": "#ffffff12",
+        "fg": null
+      },
+      "ControlAltFillSecondary": {
+        "bg": "#0000001a",
+        "fg": null
+      },
+      "ControlAltFillTertiary": {
+        "bg": "#ffffff0b",
+        "fg": null
+      },
+      "ControlAltFillTransparent": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "ControlFillActiveInput": {
+        "bg": "#1e1e1eb2",
+        "fg": null
+      },
+      "ControlFillDefault": {
+        "bg": "#ffffff0f",
+        "fg": null
+      },
+      "ControlFillDisabled": {
+        "bg": "#ffffff0b",
+        "fg": null
+      },
+      "ControlFillQuaternary": {
+        "bg": "#ffffff0f",
+        "fg": null
+      },
+      "ControlFillSecondary": {
+        "bg": "#ffffff15",
+        "fg": null
+      },
+      "ControlFillTertiary": {
+        "bg": "#ffffff08",
+        "fg": null
+      },
+      "ControlFillTransparent": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "ControlOnImageFillDefault": {
+        "bg": "#1c1c1cb2",
+        "fg": null
+      },
+      "ControlOnImageFillDisabled": {
+        "bg": "#1e1e1e00",
+        "fg": null
+      },
+      "ControlOnImageFillSecondary": {
+        "bg": "#1a1a1aff",
+        "fg": null
+      },
+      "ControlOnImageFillTertiary": {
+        "bg": "#131313ff",
+        "fg": null
+      },
+      "ControlSolidFillDefault": {
+        "bg": "#454545ff",
+        "fg": null
+      },
+      "ControlStrokeDefault": {
+        "bg": "#ffffff12",
+        "fg": null
+      },
+      "ControlStrokeForStrongFillWhenOnImage": {
+        "bg": "#0000006b",
+        "fg": null
+      },
+      "ControlStrokeOnAccentDefault": {
+        "bg": "#ffffff14",
+        "fg": null
+      },
+      "ControlStrokeOnAccentDisabled": {
+        "bg": "#00000033",
+        "fg": null
+      },
+      "ControlStrokeOnAccentSecondary": {
+        "bg": "#00000024",
+        "fg": null
+      },
+      "ControlStrokeOnAccentTertiary": {
+        "bg": "#00000037",
+        "fg": null
+      },
+      "ControlStrokeSecondary": {
+        "bg": "#ffffff12",
+        "fg": null
+      },
+      "ControlStrokeTransparent": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "ControlStrongFillDefault": {
+        "bg": "#ffffff8b",
+        "fg": null
+      },
+      "ControlStrongFillDisabled": {
+        "bg": "#ffffff3f",
+        "fg": null
+      },
+      "ControlStrongStrokeDefault": {
+        "bg": "#ffffff9a",
+        "fg": null
+      },
+      "ControlStrongStrokeDisabled": {
+        "bg": "#ffffff28",
+        "fg": null
+      },
+      "DividerStrokeDefault": {
+        "bg": "#ffffff15",
+        "fg": null
+      },
+      "FocusStrokeInner": {
+        "bg": "#000000b2",
+        "fg": null
+      },
+      "FocusStrokeOuter": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "HyperlinkFillDisabled": {
+        "bg": "#ffffff5d",
+        "fg": null
+      },
+      "HyperlinkFillPrimary": {
+        "bg": "#99ebffff",
+        "fg": null
+      },
+      "HyperlinkFillSecondary": {
+        "bg": "#60cdffff",
+        "fg": null
+      },
+      "HyperlinkFillTertiary": {
+        "bg": "#60cdffe6",
+        "fg": null
+      },
+      "LayerFillAlt": {
+        "bg": "#ffffff0e",
+        "fg": null
+      },
+      "LayerFillDefault": {
+        "bg": "#3a3a3a4d",
+        "fg": null
+      },
+      "ShadowFlyout": {
+        "bg": "#00000042",
+        "fg": null
+      },
+      "SmokeFillDefault": {
+        "bg": "#0000004d",
+        "fg": null
+      },
+      "SmokeFillInverse": {
+        "bg": "#1c1c1cb2",
+        "fg": null
+      },
+      "SolidBackgroundFillBase": {
+        "bg": "#202020ff",
+        "fg": null
+      },
+      "SolidBackgroundFillBaseAlt": {
+        "bg": "#0a0a0aff",
+        "fg": null
+      },
+      "SolidBackgroundFillQuaternary": {
+        "bg": "#2c2c2cff",
+        "fg": null
+      },
+      "SolidBackgroundFillQuinary": {
+        "bg": "#333333ff",
+        "fg": null
+      },
+      "SolidBackgroundFillSecondary": {
+        "bg": "#1c1c1cff",
+        "fg": null
+      },
+      "SolidBackgroundFillSenary": {
+        "bg": "#373737ff",
+        "fg": null
+      },
+      "SolidBackgroundFillTertiary": {
+        "bg": "#282828ff",
+        "fg": null
+      },
+      "SubtleFillDisabled": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "SubtleFillSecondary": {
+        "bg": "#ffffff0f",
+        "fg": null
+      },
+      "SubtleFillTertiary": {
+        "bg": "#ffffff0b",
+        "fg": null
+      },
+      "SubtleFillTransparent": {
+        "bg": "#ffffff00",
+        "fg": null
+      },
+      "SurfaceBackgroundFillDefault": {
+        "bg": "#2c2c2cff",
+        "fg": null
+      },
+      "SurfaceStrokeDefault": {
+        "bg": "#75757566",
+        "fg": null
+      },
+      "SurfaceStrokeFlyout": {
+        "bg": "#00000033",
+        "fg": null
+      },
+      "SystemFillAttention": {
+        "bg": "#60cdffff",
+        "fg": null
+      },
+      "SystemFillAttentionBackground": {
+        "bg": "#ffffff08",
+        "fg": null
+      },
+      "SystemFillCaution": {
+        "bg": "#fce100ff",
+        "fg": null
+      },
+      "SystemFillCautionBackground": {
+        "bg": "#433519ff",
+        "fg": null
+      },
+      "SystemFillCritical": {
+        "bg": "#ff99a4ff",
+        "fg": null
+      },
+      "SystemFillCriticalBackground": {
+        "bg": "#442726ff",
+        "fg": null
+      },
+      "SystemFillNeutral": {
+        "bg": "#ffffff8b",
+        "fg": null
+      },
+      "SystemFillNeutralBackground": {
+        "bg": "#ffffff08",
+        "fg": null
+      },
+      "SystemFillSolidAttentionBackground": {
+        "bg": "#2e2e2eff",
+        "fg": null
+      },
+      "SystemFillSolidNeutral": {
+        "bg": "#8a8a8aff",
+        "fg": null
+      },
+      "SystemFillSolidNeutralBackground": {
+        "bg": "#2e2e2eff",
+        "fg": null
+      },
+      "SystemFillSuccess": {
+        "bg": "#6ccb5fff",
+        "fg": null
+      },
+      "SystemFillSuccessBackground": {
+        "bg": "#393d1bff",
+        "fg": null
+      },
+      "TextFillDisabled": {
+        "bg": "#ffffff5d",
+        "fg": null
+      },
+      "TextFillPrimary": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "TextFillSecondary": {
+        "bg": "#ffffffc8",
+        "fg": null
+      },
+      "TextFillTertiary": {
+        "bg": "#ffffff8b",
+        "fg": null
+      },
+      "TextOnAccentFillDisabled": {
+        "bg": "#00000080",
+        "fg": null
+      },
+      "TextOnAccentFillPrimary": {
+        "bg": "#000000ff",
+        "fg": null
+      },
+      "TextOnAccentFillSecondary": {
+        "bg": "#00000080",
+        "fg": null
+      },
+      "TextOnAccentFillSelectedText": {
+        "bg": "#ffffffff",
+        "fg": null
+      }
+    }
+  },
+  "ShellInternal": {
+    "categoryGuid": "5af241b7-5627-4d12-bfb1-2b67d11127d7",
+    "categoryName": "ShellInternal",
+    "colorCount": 28,
+    "colors": {
+      "CaptionControlCloseFillPrimary": {
+        "bg": "#c42b1cff",
+        "fg": null
+      },
+      "CaptionControlCloseFillSecondary": {
+        "bg": "#c42b1ce6",
+        "fg": null
+      },
+      "CaptionControlCloseTextFillPrimary": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "CaptionControlCloseTextFillSecondary": {
+        "bg": "#ffffffb3",
+        "fg": null
+      },
+      "EnvironmentBackground": {
+        "bg": "#1c1c1cff",
+        "fg": null
+      },
+      "EnvironmentBadge": {
+        "bg": "#ffffff0f",
+        "fg": null
+      },
+      "EnvironmentBody": {
+        "bg": "#1c1c1cff",
+        "fg": null
+      },
+      "EnvironmentBodyText": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "EnvironmentBorder": {
+        "bg": "#9184eeff",
+        "fg": null
+      },
+      "EnvironmentBorderInactive": {
+        "bg": "#454545ff",
+        "fg": null
+      },
+      "EnvironmentHeader": {
+        "bg": "#282828ff",
+        "fg": null
+      },
+      "EnvironmentHeaderInactive": {
+        "bg": "#282828ff",
+        "fg": null
+      },
+      "EnvironmentIndicator": {
+        "bg": "#75757566",
+        "fg": null
+      },
+      "EnvironmentLayeredBackground": {
+        "bg": "#3a3a3a4d",
+        "fg": null
+      },
+      "EnvironmentLayeredBorder": {
+        "bg": "#00000080",
+        "fg": null
+      },
+      "EnvironmentLogo": {
+        "bg": "#9184eeff",
+        "fg": null
+      },
+      "EnvironmentTab": {
+        "bg": "#282828ff",
+        "fg": null
+      },
+      "EnvironmentTabInactive": {
+        "bg": "#282828ff",
+        "fg": null
+      },
+      "StatusBarBackgroundFillBuilding": {
+        "bg": "#3f3682ff",
+        "fg": null
+      },
+      "StatusBarBackgroundFillDebugging": {
+        "bg": "#7a2101ff",
+        "fg": null
+      },
+      "StatusBarBackgroundFillRest": {
+        "bg": "#0000004d",
+        "fg": null
+      },
+      "StatusBarBackgroundFillSolutionLoading": {
+        "bg": "#003b6aff",
+        "fg": null
+      },
+      "StatusBarControlFillSecondary": {
+        "bg": "#ffffff20",
+        "fg": null
+      },
+      "StatusBarTextFillBuilding": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "StatusBarTextFillDebugging": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "StatusBarTextFillDisabled": {
+        "bg": "#ffffff5d",
+        "fg": null
+      },
+      "StatusBarTextFillRest": {
+        "bg": "#ffffffff",
+        "fg": null
+      },
+      "StatusBarTextFillSolutionLoading": {
+        "bg": "#ffffffff",
+        "fg": null
+      }
+    }
+  }
+}

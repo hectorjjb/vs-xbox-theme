@@ -1,0 +1,84 @@
+{
+  "Shell": {
+    "categoryGuid": "73708ded-2d56-4aad-b8eb-73b20d3f4bff",
+    "categoryName": "Shell",
+    "colorCount": 7,
+    "colors": {
+      "AccentFillDefault": {
+        "bg": "#8f0c3eff",
+        "fg": null
+      },
+      "AccentFillSecondary": {
+        "bg": "#8f0c3ee5",
+        "fg": null
+      },
+      "AccentFillTertiary": {
+        "bg": "#8f0c3ecc",
+        "fg": null
+      },
+      "SolidBackgroundFillTertiary": {
+        "bg": "#fef5f8ff",
+        "fg": null
+      },
+      "SolidBackgroundFillQuaternary": {
+        "bg": "#fffcfdff",
+        "fg": null
+      },
+      "SurfaceBackgroundFillDefault": {
+        "bg": "#fffcfdff",
+        "fg": null
+      },
+      "TextFillSecondary": {
+        "bg": "#000000b2",
+        "fg": null
+      }
+    }
+  },
+  "ShellInternal": {
+    "categoryGuid": "5af241b7-5627-4d12-bfb1-2b67d11127d7",
+    "categoryName": "ShellInternal",
+    "colorCount": 10,
+    "colors": {
+      "EnvironmentBackground": {
+        "bg": "#f9bcd3ff",
+        "fg": null
+      },
+      "EnvironmentBody": {
+        "bg": "#f9bcd3ff",
+        "fg": null
+      },
+      "EnvironmentBorder": {
+        "bg": "#8f0c3eff",
+        "fg": null
+      },
+      "EnvironmentHeader": {
+        "bg": "#fef5f8ff",
+        "fg": null
+      },
+      "EnvironmentHeaderInactive": {
+        "bg": "#fef5f8ff",
+        "fg": null
+      },
+      "EnvironmentIndicator": {
+        "bg": "#8f0c3e80",
+        "fg": null
+      },
+      "EnvironmentLayeredBackground": {
+        "bg": "#ffffff60",
+        "fg": null
+      },
+      "EnvironmentLogo": {
+        "bg": "#8f0c3eff",
+        "fg": null
+      },
+      "EnvironmentTab": {
+        "bg": "#fef5f8ff",
+        "fg": null
+      },
+      "EnvironmentTabInactive": {
+        "bg": "#fef5f8ff",
+        "fg": null
+      }
+    }
+  }
+}
