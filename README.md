@@ -92,6 +92,17 @@ Editor syntax colors (the actual `Identifier`/`Keyword`/`String`/etc. tokens) st
 | Visual Studio 2022 < 17.9 | ❌ Modernized schema not available |
 | VS Code | Use the [sibling extension](https://github.com/hectorjjb/vs-code-xbox-theme) |
 
+## Publishing
+
+To release to the Visual Studio Marketplace:
+
+```powershell
+npm run package    # build the VSIX
+npm run publish    # uploads via VsixPublisher.exe; needs $env:VS_MARKETPLACE_PAT
+```
+
+See [`docs/PUBLISHING.md`](docs/PUBLISHING.md) for the full one-time setup (publisher account, PAT) and per-release workflow.
+
 ## Repo layout
 
 ```
