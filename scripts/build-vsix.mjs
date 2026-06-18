@@ -151,14 +151,17 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
   await copyFile(join(repo, "src", "vsix", "[Content_Types].xml"), join(stage, "[Content_Types].xml"));
   await copyFile(join(repo, "LICENSE"), join(stage, "LICENSE.txt"));
 
-  // 4a. Copy marketing images (icon + preview) referenced by the manifest.
-  // Without these the Extension Manager shows a generic placeholder.
+  // 4a. Copy marketing images referenced by the manifest (icon + preview only).
+  // The 6 per-flavor screenshots in images/*.jpg are README-only and would
+  // bloat the VSIX by ~2 MB without being displayed anywhere in the IDE.
   const imagesSrc = join(repo, "images");
   const imagesStage = join(stage, "images");
+  const MANIFEST_IMAGES = ["icon.png", "preview.png"];
   if (existsSync(imagesSrc)) {
     await mkdir(imagesStage, { recursive: true });
-    for (const f of await readdir(imagesSrc)) {
-      await copyFile(join(imagesSrc, f), join(imagesStage, f));
+    for (const f of MANIFEST_IMAGES) {
+      const src = join(imagesSrc, f);
+      if (existsSync(src)) await copyFile(src, join(imagesStage, f));
     }
   }
 

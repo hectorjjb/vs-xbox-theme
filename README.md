@@ -21,6 +21,18 @@ Six Xbox-inspired color themes for **Visual Studio 2026** (and forward-compatibl
 - **Xbox High Contrast (Dark)** — pure-black background, white text, vivid green accent (`#2ecc40`, ~9.8:1 contrast).
 - **Xbox High Contrast (Light)** — pure-white background, black text, deep green/blue contrast borders.
 
+## Screenshots
+
+| | |
+| :---: | :---: |
+| **Xbox Original** | **Xbox 360** |
+| ![Xbox Original](images/xbox-original.jpg) | ![Xbox 360](images/xbox-360.jpg) |
+| **Xbox One** | **Xbox Series X** |
+| ![Xbox One](images/xbox-one.jpg) | ![Xbox Series X](images/xbox-series-x.jpg) |
+| **Xbox High Contrast (Dark)** | **Xbox High Contrast (Light)** |
+| ![Xbox HC Dark](images/xbox-hc-dark.jpg) | ![Xbox HC Light](images/xbox-hc-light.jpg) |
+
+
 ## Install
 
 ### Prerequisite (one-time)

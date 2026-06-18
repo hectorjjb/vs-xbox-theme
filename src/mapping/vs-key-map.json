@@ -49,6 +49,24 @@
     "SurfaceBackgroundFillDefault":            { "background": "$bg" },
     "TextFillSecondary":                       { "background": "$fg:b2" }
   },
+  "TreeView": {
+    "_guid": "{92ecf08e-8b13-4cf4-99e9-ae2692382185}",
+    "_doc": "Solution Explorer / Test Explorer / any WPF TreeView tool window. Recolors row selection (active + inactive), expand-chevron glyph, drag-over indicator, and search-result highlight to the flavor green. Does NOT change folder/file icon glyphs themselves — those are SVG monikers owned by the project system (would require a separate image-asset extension).",
+    "SelectedItemActive":                  { "background": "$green:cc", "foreground": "$accentFg" },
+    "SelectedItemActiveGlyph":             { "background": "$accentFg" },
+    "SelectedItemActiveGlyphMouseOver":    { "background": "$accentFg" },
+    "SelectedItemInactive":                { "background": "$green:55", "foreground": "$fg" },
+    "SelectedItemInactiveGlyph":           { "background": "$fg" },
+    "SelectedItemInactiveGlyphMouseOver":  { "background": "$greenBright" },
+    "Glyph":                               { "background": "$fg:99" },
+    "GlyphMouseOver":                      { "background": "$greenBright" },
+    "DragOverItem":                        { "background": "$green:66", "foreground": "$accentFg" },
+    "DragOverItemGlyph":                   { "background": "$accentFg" },
+    "DragOverItemGlyphMouseOver":          { "background": "$accentFg" },
+    "HighlightedSpan":                     { "background": "$green", "foreground": "$accentFg" },
+    "FocusVisualBorder":                   { "background": "$green" },
+    "ItemAdornment":                       { "foreground": "$greenBright" }
+  },
   "ShellInternal": {
     "_guid": "{5af241b7-5627-4d12-bfb1-2b67d11127d7}",
     "_doc": "ShellInternal — covers the most-visible chrome surfaces. 10 tokens matching Bubblegum's pattern: EnvironmentBody is the main backdrop; Header/Tab(/Inactive) drive title bar + tab strip; Border + Logo + Indicator carry the accent.",
