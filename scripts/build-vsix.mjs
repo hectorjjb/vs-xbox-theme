@@ -19,7 +19,7 @@ import { spawnSync } from "node:child_process";
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, "..");
 
-const PUBLISHER = "hectorj";
+const PUBLISHER = "hector-jimenez";
 // Stable per-extension GUID. NEVER change this — it's the extension's identity
 // across all versions on a user's machine and on the Marketplace.
 const EXT_GUID = "8c1f4d2e-3a5b-4c6d-9e7f-1b2a3c4d5e6f";
@@ -105,7 +105,10 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
   const version = await loadVersion();
   const dist = join(repo, "dist");
   const stage = join(dist, "vsix-stage");
-  const vsixName = `${IDENTITY_ID}-${version}.vsix`;
+  // Filename: clean publisher.name-version (no GUID). The GUID still lives
+  // inside IDENTITY_ID for the manifest's <Identity Id>, where it provides
+  // global uniqueness independent of publisher namespace.
+  const vsixName = `${PUBLISHER}.XboxThemes-${version}.vsix`;
   const vsixPath = join(dist, vsixName);
   await rm(stage, { recursive: true, force: true });
   await mkdir(join(stage, "Themes"), { recursive: true });

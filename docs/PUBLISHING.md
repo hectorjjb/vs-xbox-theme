@@ -7,7 +7,7 @@ Manual publish workflow using `VsixPublisher.exe`. No GitHub Actions — every r
 ### 1. Create a Marketplace publisher
 
 1. Sign in at <https://marketplace.visualstudio.com/manage/publishers> with the Microsoft account you want listed as publisher.
-2. **Create publisher** → set **Publisher ID** to `hectorj` (must match `Publisher` in `extension.vsixmanifest.template` and `publisher` in `publish/publish-manifest.json`).
+2. **Create publisher** → set **Publisher ID** to `hector-jimenez` (must match the same publisher used by the [VS Code Xbox Theme](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.xbox-theme) so both extensions appear under one identity; this value is stamped into `extension.vsixmanifest.template` and `publish/publish-manifest.json`).
 3. Set the display name (e.g. "Hector Jimenez") and icon.
 
 ### 2. Create a Personal Access Token (PAT)
@@ -39,7 +39,7 @@ Edit `package.json` `"version"` (semver). The build script reads from there and 
 npm run package
 ```
 
-Produces `dist\XboxThemes.<guid>-<version>.vsix`. Sanity check:
+Produces `dist\hector-jimenez.XboxThemes-<version>.vsix`. Sanity check:
 - File size around 1 MB (the bulk is `images/preview.png`).
 - Decode any one pkgdef and confirm all 5 categories present:
   ```powershell
@@ -63,7 +63,7 @@ That runs `scripts/publish.mjs`, which calls:
 
 ```text
 VsixPublisher.exe publish \
-  -payload  dist\XboxThemes.<guid>-<version>.vsix \
+  -payload  dist\hector-jimenez.XboxThemes-<version>.vsix \
   -publishManifest publish\publish-manifest.json \
   -personalAccessToken $env:VS_MARKETPLACE_PAT
 ```
@@ -72,7 +72,7 @@ The first publish takes ~30 seconds; subsequent updates are faster. Marketplace 
 
 ### 5. Verify
 
-- `https://marketplace.visualstudio.com/items?itemName=hectorj.XboxThemes`
+- `https://marketplace.visualstudio.com/items?itemName=hector-jimenez.XboxThemes`
 - Inside VS 2026 → Extensions → Manage Extensions → Browse tab → search "Xbox Themes". The list view should show the new version.
 
 ### 6. Tag the release

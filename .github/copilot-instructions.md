@@ -135,8 +135,12 @@ binary-decoding the built-in theme pkgdefs.
    `<ProductArchitecture>amd64</ProductArchitecture>` (also `arm64`). The single-
    target form fails on VS 2026.
 
-6. **Identity Id should include a stable GUID suffix** (`XboxThemes.<guid>`) for
-   uniqueness. The constant lives at the top of `build-vsix.mjs`.
+6. **Manifest `<Identity Id>` should include a stable GUID suffix** (e.g.
+   `XboxThemes.8c1f4d2e-3a5b-4c6d-9e7f-1b2a3c4d5e6f`) for global uniqueness
+   independent of publisher namespace. The constant lives at the top of
+   `build-vsix.mjs`. The output `.vsix` filename is the cleaner
+   `<publisher>.XboxThemes-<version>.vsix` (no GUID) — the GUID belongs in
+   the manifest, not the filename.
 
 7. **Pkgdef binary blob format** (one per category, after the `Data=hex:` prefix):
    - 12-byte header

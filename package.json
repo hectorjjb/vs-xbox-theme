@@ -10,6 +10,14 @@
     "package": "node scripts/build-vsix.mjs",
     "publish": "node scripts/publish.mjs"
   },
-  "author": "Hector",
-  "license": "MIT"
+  "author": {
+    "name": "Hector Jimenez",
+    "email": "hectorjimenez@outlook.com",
+    "url": "https://github.com/hectorjjb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hectorjjb/vs-xbox-theme"
+  },
+  "license": "Apache-2.0"
 }
