@@ -26,9 +26,10 @@ The 6 flavors:
 
 VS 2026 uses a **new modernized theme schema** ([Microsoft docs](https://learn.microsoft.com/en-us/visualstudio/extensibility/migration/modernize-theme-colors)):
 
-- ~229 tokens across **5 categories** we override (Microsoft's built-ins span 34+ categories).
+- ~159 tokens across **12 categories** we override (Microsoft's built-ins span ~1,242 tokens across 34+ categories).
 - A `<Theme FallbackId="...">` attribute inherits everything not overridden from a built-in **Light** (`{de3dbbcd-f642-433c-8353-8f1df4370aba}`) or **Dark** (`{1ded0138-47ce-435e-84ef-9ec1f439b749}`) theme.
-- We **do not** ship a full theme — we ship the ~80 tokens that give each flavor its identity. Everything else inherits.
+- We **do not** ship a full theme — we ship the ~159 tokens that give each flavor its identity. Everything else inherits.
+- See `docs/COVERAGE.md` for the full coverage matrix + rationale for intentionally-skipped categories.
 
 VS 2026 has **no "Import Theme" UI** — custom themes must be packaged as a VSIX.
 
@@ -51,13 +52,13 @@ images/
   icon.png, preview.png              ← shipped IN the VSIX (icon = 128x128, preview = console gens)
   xbox-*.jpg (6 files)               ← README screenshots, NOT shipped in the VSIX
 scripts/
-  build-vstheme.mjs                  ← .vstheme XML generator (role+alpha resolution, extraRoles merge)
+  build-vstheme.mjs                  ← .vstheme XML generator (role+alpha resolution, extraRoles merge, XML validation)
   build-vsix.mjs                     ← VSIX packager (compile, header inject, stage, zip)
   decode-pkgdef.mjs                  ← pkgdef binary blob decoder for inspection
   publish.mjs                        ← Marketplace publisher (calls VsixPublisher.exe)
 docs/
+  COVERAGE.md                        ← Per-category token coverage matrix + add-a-category workflow
   PUBLISHING.md                      ← Manual Marketplace publish workflow
-  MODERNIZATION.md                   ← (in sibling vs-code-xbox-theme; not relevant here)
 dist/                                ← .vstheme, .pkgdef, .vsix output (gitignored)
 ```
 
@@ -91,7 +92,9 @@ In `src/mapping/vs-key-map.json`, color values use:
 - `#rrggbb` or `#rrggbbaa` — literal color.
 - Per-flavor `extraRoles` in `src/flavors/*.json` add palette entries (e.g. `accentFg` = readable text drawn on the green accent surface; varies per flavor).
 
-Roles are resolved by `resolveRole()` in `scripts/build-vstheme.mjs`. Extra roles are merged via `buildPalette()`.
+Roles are resolved by `resolveRole()` in `scripts/build-vstheme.mjs`. Extra roles are merged via `buildPalette()`. The generated XML is then run through `validateThemeXml()` which catches duplicate names, duplicate GUIDs, missing Background+Foreground, bad ARGB sources, and tag mismatch — fails the build before `VsixColorCompiler.exe` silently emits a no-op pkgdef.
+
+To add a new category, see the workflow in `docs/COVERAGE.md` (decode → add to map → build → verify).
 
 ## Build / package / publish commands
 
@@ -157,11 +160,14 @@ binary-decoding the built-in theme pkgdefs.
    - 12-byte header
    - 16-byte category GUID (Data1 LE, Data2 LE, Data3 LE, Data4 BE)
    - 4-byte little-endian color count
-   - Then per-color: `nameLen(4 LE) + name(utf8) + bgFlag(1) + [RGBA(4)] + fgFlag(1) + [RGBA(4)]`
+   - Then per-color: `nameLen(4 LE) + name(utf8) + bgFlag(1) + [4 bytes if bgFlag≠0] + fgFlag(1) + [4 bytes if fgFlag≠0]`
    - Color stored as R, G, B, A (one byte each).
+   - **Flag values**: `0x00` = no color, `0x01` = raw RGBA. Microsoft's `EditorColors.pkgdef` also uses `0x02`–`0x05` for VsColor *reference* tokens (the 4 trailing bytes are an index, not an RGB). The decoder treats any non-zero flag as "4 bytes follow" so it can keep parsing past reference tokens.
 
    The decoder in `scripts/decode-pkgdef.mjs` implements this; use it whenever
    you want to verify what a pkgdef actually contains.
+
+8. **Editor categories share GUIDs but route by NAME.** `Text Editor Text Manager Items` (5 tokens) and `Text Editor MEF Items` (153 tokens) both use GUID `{75a05685-…}` in Microsoft's own pkgdefs but appear under separate `[$RootKey$\Themes\{theme-guid}\<Category Name>]` registry keys. VS looks them up by the bracketed name, not the GUID. Our map uses GUID `{58e96763-…}` for Text Editor Text Manager Items (the standalone GUID from the Light/Dark theme's own block) which works equivalently and avoids ambiguity. **Syntax tokens belong in `Text Editor MEF Items` + `Text Editor Language Service Items`, NOT in `Text Editor Text Manager Items`** — the latter only holds 5 base tokens (Plain Text, Selected Text + variants, Indicator Margin).
 
 ## Tooling locations
 
@@ -199,9 +205,13 @@ install roots so they work on Insiders / Preview / Enterprise / Pro / Community.
   registering `IVsImageService` monikers. Out of scope.
 - **CI build + auto-publish.** Hector explicitly wants manual publish only — do
   not add GitHub Actions for releases.
-- **Extension Manager pivot underline still purple.** Confirmed to be a
-  hardcoded brush — every theme (including Microsoft's own built-ins) shows the
-  same purple. Cannot be fixed from a theme pkgdef.
+- **Extension Manager pivot underline.** Was confirmed purple in v0.1 across
+  every theme (including MS built-ins). After expanding DecorativeMPF to
+  recolor the Lavender family (`LavenderPrimaryAlt` → flavor green), this MAY
+  now pick up the accent — needs visual verification in a fresh VS install.
+- **Environment category (773 tokens, currently inherited).** Targeted overrides
+  for status-bar accent / dialog chrome could be added later without exploding
+  scope. See `docs/COVERAGE.md` for the full intentional-skip list.
 
 ## Sibling repo
 
