@@ -1,9 +1,11 @@
 # Xbox Themes for Visual Studio
 
+[![Marketplace](https://img.shields.io/visual-studio-marketplace/v/hector-jimenez.vs-xbox-theme?label=Marketplace&color=107c10)](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/hector-jimenez.vs-xbox-theme?color=107c10)](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme)
 [![License](https://img.shields.io/badge/license-Apache--2.0-107c10.svg)](LICENSE)
-[![VS Version](https://img.shields.io/badge/Visual%20Studio-2026%20%7C%202022%2017.9%2B-107c10)](https://visualstudio.microsoft.com/)
+[![VS Version](https://img.shields.io/badge/Visual%20Studio-2026-107c10)](https://visualstudio.microsoft.com/)
 
-Six Xbox-inspired color themes for **Visual Studio 2026** (and forward-compatible with VS 2022 17.9+) — a sibling port of [`vs-code-xbox-theme`](https://github.com/hectorjjb/vs-code-xbox-theme) sharing the same canonical palette.
+Six Xbox-inspired color themes for **Visual Studio 2026** — a sibling port of [`vs-code-xbox-theme`](https://github.com/hectorjjb/vs-code-xbox-theme) sharing the same canonical palette.
 
 ![Xbox console generations](images/preview.png)
 
@@ -35,18 +37,19 @@ Six Xbox-inspired color themes for **Visual Studio 2026** (and forward-compatibl
 
 ## Install
 
-### Prerequisite (one-time)
-This VSIX targets the new VS 2026 modernized theme schema. To build from source, install the **Visual Studio extension development** workload (provides `VsixColorCompiler.exe`):
+### From the Marketplace (recommended)
 
-1. Open **Visual Studio Installer** → **Modify** your VS 2026 install.
-2. **Workloads** tab → check **Visual Studio extension development** → **Modify**.
+1. In **Visual Studio 2026** → **Extensions** → **Manage Extensions** → **Browse** tab → search **"Xbox Themes"**.
+2. Click **Install**, then restart VS when prompted.
+3. **Tools → Theme → \<pick any Xbox theme\>**.
 
-### Install the VSIX
+Or visit the gallery: <https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme>
+
+### Side-load a `.vsix`
 
 1. Download the latest `.vsix` from [Releases](https://github.com/hectorjjb/vs-xbox-theme/releases) (or build locally — see below).
 2. Double-click the `.vsix` to launch **VSIX Installer**, accept, and let it install for VS 2026.
-3. Restart Visual Studio.
-4. **Tools → Theme → \<pick any Xbox theme\>**.
+3. Restart Visual Studio and pick a theme via **Tools → Theme**.
 
 ### Build from source
 
@@ -56,6 +59,8 @@ cd vs-xbox-theme
 npm install
 npm run package    # → dist\hector-jimenez.vs-xbox-theme-<version>.vsix
 ```
+
+Prerequisite: **Visual Studio extension development** workload installed (provides `VsixColorCompiler.exe`). Open **Visual Studio Installer** → **Modify** → check the workload → **Modify**.
 
 To regenerate just the XML (no VSIX):
 
@@ -68,28 +73,18 @@ npm run build:series-x     # one flavor → dist\xbox-series-x.vstheme
 
 VS 2026 ships a [new minimal theme schema](https://learn.microsoft.com/en-us/visualstudio/extensibility/migration/modernize-theme-colors):
 
-- ~229 tokens across **4 categories** (down from ~1,806 across ~34 in VS 2022).
-- A `FallbackId` attribute on `<Theme>` inherits everything not overridden from a built-in **Light** or **Dark** theme — we declare only the ~50 tokens that give each flavor its identity.
+- ~229 tokens across **5 + 7 editor categories** (down from ~1,806 across ~34 in VS 2022).
+- A `FallbackId` attribute on `<Theme>` inherits everything not overridden from a built-in **Light** or **Dark** theme — we declare ~159 tokens per flavor across 12 categories that give each flavor its identity.
 - **No "Import Theme" UI** in VS 2026. Custom themes ship as a **VSIX**.
 
-Token coverage per flavor:
-
-| Category | Tokens | Drives |
-| -------- | -----: | ------ |
-| `DecorativeMPF` | 21 | Pivot underlines, decorative tints (Lavender / Purple recolored to flavor green) |
-| `Shell` | 20 | Accent fills, surface backgrounds, text-on-accent |
-| `ShellInternal` | 10 | Title bar, menu bar, document tabs, status bar (active state) |
-| `Text Editor Text Manager Items` | 14 | Editor background, foreground, selection, line highlight, cursor |
-
-Editor syntax colors (the actual `Identifier`/`Keyword`/`String`/etc. tokens) still use the legacy Text Editor system in VS 2026.
+See [`docs/COVERAGE.md`](docs/COVERAGE.md) for the complete per-category breakdown.
 
 ## Compatibility
 
 | Version | Status |
 | ------- | ------ |
 | Visual Studio 2026 (18.x) | ✅ Primary target |
-| Visual Studio 2022 17.9+ | ✅ Same VSIX (manifest targets `[17.9, 19.0)`) |
-| Visual Studio 2022 < 17.9 | ❌ Modernized schema not available |
+| Visual Studio 2022 | ❌ Modernized theme schema is VS 2026-only |
 | VS Code | Use the [sibling extension](https://github.com/hectorjjb/vs-code-xbox-theme) |
 
 ## Publishing

@@ -133,13 +133,19 @@ Optionally, create a GitHub Release at <https://github.com/hectorjjb/vs-xbox-the
 
 | Symptom | Likely cause | Fix |
 | ------- | ------------ | --- |
+| `"category"` validation error (`VsixPub0006`) | `publish-manifest.json` has an unsupported category | Categories must come from the [vsix-publish schema enum](https://json.schemastore.org/vsix-publish) — **lowercase**, themes use `"theme"` (singular). NOT `"Themes"` or `"tools"`. |
+| `VsixPub0023: tag is too large` | Tags in `extension.vsixmanifest` are **comma-separated** | Use **semicolons** instead: `<Tags>theme;color theme;...</Tags>`. The Marketplace treats the entire comma-delimited string as one tag. |
+| `VsixPub0029: Cannot determine the extension deployment technology` | First-time publish via CLI fails | **First publish must be via the web portal** at <https://marketplace.visualstudio.com/manage/publishers/hector-jimenez> → New extension → Visual Studio. Subsequent updates work via `npm run publish`. |
+| `API version of 18.0 as the lower bound ... not allowed` | `<InstallationTarget Version="[18.0,...">` | Use `[17.14,)` per the [VS 2026 compat model](https://aka.ms/vs2026extensioncompat). Lower bound = API version; upper bound is ignored. |
+| `Publisher display name (X) and Author name (Y) need to be the same` | `<Identity Publisher="slug">` in manifest doesn't match the registered publisher display name | Set `<Identity Publisher>` to the **display name** (e.g. `"Hector Jimenez"`, not `"hector-jimenez"`). See `PUBLISHER_NAME` constant in `scripts/build-vsix.mjs`. |
+| `specifies 'x86' as the target product architecture` | Missing `<ProductArchitecture>` element under `<InstallationTarget>` | Add `<ProductArchitecture>amd64</ProductArchitecture>`. VS 2022+ doesn't support x86 (the default when omitted). |
+| `Upload failed: The extension already exists` | `internalName` slug collides with an existing extension (including VS Code listings — the namespace is shared) | Pick a different `internalName` in `publish-manifest.json` and `IDENTITY_ID` in `scripts/build-vsix.mjs`. |
 | `ERROR: $env:VS_MARKETPLACE_PAT not set` | Token not exported, or new terminal session hasn't picked it up | Re-run the `[Environment]::SetEnvironmentVariable(..., "User")` line; open a fresh terminal. |
 | `Unauthorized` from VsixPublisher | PAT expired or missing Marketplace scope | Generate new PAT (one-time setup step 2). |
 | `Extension already exists with this version` | Forgot to bump `package.json`'s `version` | Bump and rebuild. |
-| `The extension identifier does not match` | `publish-manifest.json` `internalName` ≠ Identity Id name segment | Both must be `xbox-theme`. Check `publish/publish-manifest.json` `identity.internalName` and `scripts/build-vsix.mjs` `IDENTITY_ID`. |
+| `The extension identifier does not match` | `publish-manifest.json` `internalName` ≠ Identity Id name segment | Both must be `vs-xbox-theme`. Check `publish/publish-manifest.json` `identity.internalName` and `scripts/build-vsix.mjs` `IDENTITY_ID`. |
 | Marketplace shows extension but icon/preview missing | `images/icon.png` or `images/preview.png` not staged in VSIX | Re-run `npm run package`; confirm `dist\vsix-stage\images\` contains both. |
 | Marketplace tile screenshot wrong | `publish/overview.md` references the wrong image URL | Edit overview.md, re-run `npm run publish` (no need to rebuild VSIX — overview is server-side metadata). |
-| `"category"` validation error | `publish/publish-manifest.json` has an unsupported category | Categories must be from <https://learn.microsoft.com/en-us/visualstudio/extensibility/vsix-extension-schema-2-0-reference#categories>. |
 | `VsixPublisher.exe not found` | VS extension development workload not installed | Install via VS Installer → Workloads → "Visual Studio extension development". |
 | Side-loaded install shows only short description, no overview pane | Working as intended — see step 5 | Publish to Marketplace and reinstall via Browse tab to get the rich pane. |
 
@@ -167,9 +173,10 @@ These four strings must all agree. Mismatches are the #1 reason a first publish 
 
 | Field | Location | Value |
 | ----- | -------- | ----- |
-| Publisher | `scripts/build-vsix.mjs` `PUBLISHER`, `publish-manifest.json` `publisher`, `extension.vsixmanifest` `<Identity Publisher>` | `hector-jimenez` |
+| Publisher (slug) | `scripts/build-vsix.mjs` `PUBLISHER_ID`, `publish-manifest.json` `publisher` | `hector-jimenez` |
+| Publisher (display name) | `scripts/build-vsix.mjs` `PUBLISHER_NAME`, `extension.vsixmanifest` `<Identity Publisher>` | `Hector Jimenez` |
 | Identity Id | `scripts/build-vsix.mjs` `IDENTITY_ID`, `extension.vsixmanifest` `<Identity Id>` | `hector-jimenez.vs-xbox-theme` |
-| Internal name | `publish-manifest.json` `identity.internalName` | `xbox-theme` |
+| Internal name | `publish-manifest.json` `identity.internalName` | `vs-xbox-theme` |
 | Marketplace URL slug | derived | `hector-jimenez.vs-xbox-theme` |
 
 Once published, **Identity Id is permanent** — changing it orphans every existing install. See gotcha #6 in `.github/copilot-instructions.md`.

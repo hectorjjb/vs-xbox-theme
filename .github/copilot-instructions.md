@@ -143,18 +143,27 @@ binary-decoding the built-in theme pkgdefs.
 4. **`[Content_Types].xml` must declare `json`.** Otherwise the manifest.json /
    catalog.json files break the package validation.
 
-5. **Per-architecture `<InstallationTarget>` blocks are required** with
-   `<ProductArchitecture>amd64</ProductArchitecture>` (also `arm64`). The single-
-   target form fails on VS 2026.
+5. **Single `<InstallationTarget>` per SKU, target `[17.14,)`.** The lower
+   bound must be `17.14` — Marketplace rejects `[18.0,...)` with "API version
+   18.0 ... not allowed in the Marketplace at this time." Per the VS 2026
+   compat model (aka.ms/vs2026extensioncompat), the upper bound is ignored at
+   load time. Include exactly one `<ProductArchitecture>amd64</ProductArchitecture>`
+   per target — without it, Marketplace assumes x86 and rejects the upload.
+   Multi-payload-per-entry (multiple `<ProductArchitecture>` siblings under
+   one target) is **VS 18-only** and triggers `VsixPub0029` when the lower
+   bound is 17.x.
 
-6. **Manifest `<Identity Id>` mirrors the VS Code extension ID** —
-   `hector-jimenez.vs-xbox-theme` (lowercase, kebab, `publisher.name` format).
-   This matches `marketplace.visualstudio.com/items?itemName=…` and the VS
-   Code listing for cross-marketplace consistency. The constant lives at the
-   top of `build-vsix.mjs` as `IDENTITY_ID`. NEVER change it post-publish —
-   doing so orphans every existing install (no update path) and requires a
-   brand-new Marketplace listing. The output `.vsix` filename matches the Id:
-   `hector-jimenez.vs-xbox-theme-<version>.vsix`.
+6. **Manifest `<Identity Id>` is `hector-jimenez.vs-xbox-theme`** —
+   note the `vs-` prefix: the unprefixed `hector-jimenez.xbox-theme` slug is
+   taken by the sibling VS Code extension because `marketplace.visualstudio.com`
+   shares one publisher namespace across VS Code AND Visual Studio extensions.
+   The constant lives at the top of `build-vsix.mjs` as `IDENTITY_ID`. NEVER
+   change it post-publish — doing so orphans every existing install and
+   requires a brand-new Marketplace listing. The `<Identity Publisher>`
+   attribute must be the **display name** (`Hector Jimenez` — see
+   `PUBLISHER_NAME` constant) NOT the slug; Marketplace rejects uploads where
+   the Publisher attribute differs from the registered publisher display name.
+   Output `.vsix` filename matches the Id: `hector-jimenez.vs-xbox-theme-<version>.vsix`.
 
 7. **Pkgdef binary blob format** (one per category, after the `Data=hex:` prefix):
    - 12-byte header
@@ -168,6 +177,30 @@ binary-decoding the built-in theme pkgdefs.
    you want to verify what a pkgdef actually contains.
 
 8. **Editor categories share GUIDs but route by NAME.** `Text Editor Text Manager Items` (5 tokens) and `Text Editor MEF Items` (153 tokens) both use GUID `{75a05685-…}` in Microsoft's own pkgdefs but appear under separate `[$RootKey$\Themes\{theme-guid}\<Category Name>]` registry keys. VS looks them up by the bracketed name, not the GUID. Our map uses GUID `{58e96763-…}` for Text Editor Text Manager Items (the standalone GUID from the Light/Dark theme's own block) which works equivalently and avoids ambiguity. **Syntax tokens belong in `Text Editor MEF Items` + `Text Editor Language Service Items`, NOT in `Text Editor Text Manager Items`** — the latter only holds 5 base tokens (Plain Text, Selected Text + variants, Indicator Margin).
+
+9. **Marketplace publish gotchas (learned the hard way during v0.1.0 launch).**
+   - **First publish must use the web portal**, not `npm run publish`. The
+     CLI returns `VsixPub0029: Cannot determine the extension deployment
+     technology` on a brand-new extension because the Marketplace can't
+     classify the deployment type until at least one upload exists. Upload at
+     <https://marketplace.visualstudio.com/manage/publishers/hector-jimenez> →
+     New extension → Visual Studio. **Subsequent updates work via the CLI.**
+   - **Categories in `publish-manifest.json` use the lowercase enum** from
+     <https://json.schemastore.org/vsix-publish>. Themes are `"theme"`
+     (singular). NOT `"Themes"`, NOT `"tools"`. The web portal's Categories
+     dropdown has different labels (e.g. "Coding") that map to the same
+     underlying values.
+   - **Tags in `extension.vsixmanifest` use `;` separators**, not commas.
+     The Marketplace treats the entire comma-separated string as one tag,
+     blowing the 50-char limit (`VsixPub0023: tag is too large`).
+     Form-field tags in the web portal use commas — that's separate.
+   - **`<ExtensionType>VSSDK</ExtensionType>`** must be present in the
+     manifest for VS 2022+ acceptance (added between `<Tags>` and `</Metadata>`).
+   - **The VS Code Marketplace and Visual Studio Marketplace share one
+     namespace** — both live at `marketplace.visualstudio.com` and use one
+     publisher entity. A name collision between them is silently fatal
+     ("The extension already exists" with no explanation that the conflict
+     is the sibling VS Code listing).
 
 ## Tooling locations
 
