@@ -3,7 +3,7 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [ "tools", "themes" ],
   "identity": {
-    "internalName": "XboxThemes"
+    "internalName": "xbox-theme"
   },
   "overview": "overview.md",
   "priceCategory": "free",

@@ -65,13 +65,22 @@ dist/                                ← .vstheme, .pkgdef, .vsix output (gitign
 
 | Category | GUID | Tokens | Drives |
 | -------- | ---- | -----: | ------ |
-| `DecorativeMPF` | `{0c37665d-8581-4451-8394-6f4d5abd88b1}` | 21 | Lavender + Purple + LightPurple families recolored to flavor green so accent-tinted decorative surfaces match |
-| `Shell` | `{73708ded-2d56-4aad-b8eb-73b20d3f4bff}` | 20 | Accent fills, surface backgrounds, text-on-accent (full accent family: Default/Secondary/Tertiary/Alt/Senary/SelectedText*/Disabled, AccentTextFill*, TextOnAccentFill*) |
-| `ShellInternal` | `{5af241b7-5627-4d12-bfb1-2b67d11127d7}` | 10 | Title bar, menu bar, document tabs, status bar (Bubblegum-style chrome pattern) |
-| `TreeView` | `{92ecf08e-8b13-4cf4-99e9-ae2692382185}` | 14 | Solution Explorer / Test Explorer row selection, expand chevron, drag-over highlight, search-result span, focus border |
-| `Text Editor Text Manager Items` | `{75a05685-00a8-4ded-bae5-e7a50bfa929a}` | 14 | Editor background, foreground, selection, line highlight, cursor, indent guides |
+| `DecorativeMPF` | `{0c37665d-8581-4451-8394-6f4d5abd88b1}` | 21 | Lavender + Purple + LightPurple families recolored to flavor green |
+| `Shell` | `{73708ded-2d56-4aad-b8eb-73b20d3f4bff}` | 20 | Accent fills, surface backgrounds, text-on-accent |
+| `ShellInternal` | `{5af241b7-5627-4d12-bfb1-2b67d11127d7}` | 10 | Title bar, menu bar, document tabs, status bar |
+| `TreeView` | `{92ecf08e-8b13-4cf4-99e9-ae2692382185}` | 14 | Solution Explorer / Test Explorer selection, chevron, drag-over |
+| `Text Editor Text Manager Items` | `{58e96763-1d3b-4e05-b6ba-ff7115fd0b7b}` | 5 | Editor canvas: Plain Text, Selected Text variants, Indicator Margin |
+| `Text Editor MEF Items` | `{75a05685-00a8-4ded-bae5-e7a50bfa929a}` | 44 | Modern syntax, rainbow brackets, Peek, inline diff/merge, breakpoint fills, Current Statement, ref highlights |
+| `Text Editor Language Service Items` | `{e0187991-b458-4f7e-8ca9-42c9a573b56c}` | 18 | Legacy classifier syntax (duplicates MEF) + `User Types(Value types/Interfaces/Delegates/Enums/Type parameters)` |
+| `Text Editor Text Marker Items` | `{ff349800-ea43-46c1-8c98-878e78f46501}` | 11 | Squiggles, snippet fields, Definition Window backdrop, Edit-and-Continue |
+| `Output Window` | `{9973efdf-317d-431c-8bc1-5e88cbfd4f7f}` | 6 | Build/Debug output backdrop + OutputError/Heading/Verbose runs |
+| `Find Results` | `{5c48b2cb-0366-4fbf-9786-0bb37e945687}` | 4 | Find-in-Files results panel |
+| `Editor Tooltip` | `{a9a5637f-b2a8-422e-8fb5-dfb4625f0111}` | 1 | Hover QuickInfo panel backdrop |
+| `CodeSense` | `{fc88969a-cbed-4940-8f48-142a503e2381}` | 5 | CodeLens "N references" indicators |
 
-**Total: ~79 tokens overridden per flavor.** Editor SYNTAX colors (Identifier/Keyword/String/etc.) still use the legacy Text Editor system in VS 2026 — out of scope for this extension.
+**Total: ~159 tokens overridden per flavor across 12 categories.** Editor syntax (Keyword/Comment/String/etc.) IS now overridden — duplicated across `Text Editor MEF Items` (modern classifier) and `Text Editor Language Service Items` (legacy classifier) so colors apply regardless of which classifier the language service emits through. See `docs/COVERAGE.md` for the full coverage matrix including categories we intentionally inherit from FallbackId.
+
+**⚠️ Category GUID caveat**: `Text Editor Text Manager Items` and `Text Editor MEF Items` *share* GUID `{75a05685-…}` in MS's own pkgdefs but appear under different registry keys. VS routes by category NAME, not GUID. Our `Text Editor Text Manager Items` uses the standalone GUID `{58e96763-…}` (verified by decoding `EditorColors.pkgdef`).
 
 ## Generator role syntax
 

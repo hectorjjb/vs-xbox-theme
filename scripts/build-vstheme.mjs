@@ -96,6 +96,53 @@ async function loadFlavor(name) {
   return JSON.parse(await readFile(path, "utf8"));
 }
 
+// Validates a built theme XML for the common failure modes that VsixColorCompiler
+// would otherwise accept silently and emit a no-op pkgdef for:
+//   - duplicate color names within the same category (later one wins, earlier is dropped)
+//   - duplicate category GUIDs across categories (would collide on load)
+//   - <Color> entries missing both Background and Foreground (compiler emits 0 bytes)
+//   - ARGB sources that aren't exactly 8 uppercase hex chars
+//   - XML well-formedness (parses with a strict tag counter)
+function validateThemeXml(xml, flavorName) {
+  const errors = [];
+  const categoryRe = /<Category Name="([^"]+)" GUID="(\{[^}]+\})">/g;
+  const colorRe = /<Color Name="([^"]+)">([\s\S]*?)<\/Color>/g;
+  const seenGuids = new Map();
+  let catMatch;
+  const blocks = [];
+  while ((catMatch = categoryRe.exec(xml)) !== null) {
+    const [, name, guid] = catMatch;
+    const prior = seenGuids.get(guid.toLowerCase());
+    if (prior && prior !== name) errors.push(`duplicate category GUID ${guid} on "${name}" and "${prior}"`);
+    seenGuids.set(guid.toLowerCase(), name);
+    const start = catMatch.index;
+    const endMatch = xml.indexOf("</Category>", start);
+    blocks.push({ name, body: xml.slice(start, endMatch) });
+  }
+  for (const { name: cat, body } of blocks) {
+    const seenColors = new Set();
+    let cm;
+    const localColorRe = new RegExp(colorRe.source, "g");
+    while ((cm = localColorRe.exec(body)) !== null) {
+      const [, colorName, inner] = cm;
+      if (seenColors.has(colorName)) errors.push(`duplicate color "${colorName}" in category "${cat}"`);
+      seenColors.add(colorName);
+      const hasBg = /<Background\s/.test(inner);
+      const hasFg = /<Foreground\s/.test(inner);
+      if (!hasBg && !hasFg) errors.push(`<Color Name="${colorName}"> in "${cat}" has no Background or Foreground`);
+      for (const m of inner.matchAll(/Source="([^"]+)"/g)) {
+        if (!/^[0-9A-F]{8}$/.test(m[1])) errors.push(`bad ARGB "${m[1]}" on "${colorName}" in "${cat}" — must be 8 uppercase hex chars`);
+      }
+    }
+  }
+  const opens = (xml.match(/<(Themes|Theme|Category|Color)\b/g) || []).length;
+  const closes = (xml.match(/<\/(Themes|Theme|Category|Color)>/g) || []).length;
+  if (opens !== closes) errors.push(`XML tag mismatch: ${opens} opens vs ${closes} closes`);
+  if (errors.length) {
+    throw new Error(`Theme "${flavorName}" failed validation:\n  - ${errors.join("\n  - ")}`);
+  }
+}
+
 // Build the per-flavor palette by merging flavor-local roles (extraRoles)
 // over the canonical palette[paletteKey]. Lets a flavor declare values the
 // shared palette doesn't carry, e.g. accentFg (text drawn on accent surfaces,
@@ -120,6 +167,7 @@ async function main() {
     const flavor = await loadFlavor(name);
     const pal = buildPalette(flavor, palette);
     const xml = buildThemeXml(flavor, map, pal);
+    validateThemeXml(xml, flavor.name);
     const out = join(repo, "dist", `${flavor.id}.vstheme`);
     await writeFile(out, xml, "utf8");
     console.log(`✓ ${out}`);

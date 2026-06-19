@@ -35,11 +35,11 @@ function parseBlock(buf) {
     const nameLen = buf.readUInt32LE(off); off += 4;
     const name = buf.subarray(off, off + nameLen).toString("utf8"); off += nameLen;
     const bgFlag = buf[off++]; let bg = null;
-    if (bgFlag === 0x01) { bg = [buf[off], buf[off+1], buf[off+2], buf[off+3]]; off += 4; }
+    if (bgFlag !== 0x00) { bg = [buf[off], buf[off+1], buf[off+2], buf[off+3]]; off += 4; }
     const fgFlag = buf[off++]; let fg = null;
-    if (fgFlag === 0x01) { fg = [buf[off], buf[off+1], buf[off+2], buf[off+3]]; off += 4; }
+    if (fgFlag !== 0x00) { fg = [buf[off], buf[off+1], buf[off+2], buf[off+3]]; off += 4; }
     const toArgb = c => c ? "#" + c.slice(0, 3).map(x => x.toString(16).padStart(2, "0")).join("") + c[3].toString(16).padStart(2, "0") : null;
-    colors[name] = { bg: toArgb(bg), fg: toArgb(fg) };
+    colors[name] = { bg: toArgb(bg), fg: toArgb(fg), bgFlag, fgFlag };
   }
   return { guid, count, colors };
 }
