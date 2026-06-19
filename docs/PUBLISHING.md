@@ -66,14 +66,14 @@ Edit `package.json` `"version"` (semver). The build script reads from there and 
 npm run package
 ```
 
-Produces `dist\hector-jimenez.xbox-theme-<version>.vsix`. Sanity check:
+Produces `dist\hector-jimenez.vs-xbox-theme-<version>.vsix`. Sanity check:
 
 - File size around **1.05 MB** (the bulk is `images/preview.png`).
 - Decode any one pkgdef and confirm all **12 categories** present (DecorativeMPF, Shell, ShellInternal, TreeView, Text Editor Text Manager Items, Text Editor MEF Items, Text Editor Language Service Items, Text Editor Text Marker Items, Output Window, Find Results, Editor Tooltip, CodeSense):
   ```powershell
   node scripts\decode-pkgdef.mjs dist\vsix-stage\Themes\xbox-series-x.pkgdef
   ```
-- Validate the staged manifest identity (must be `hector-jimenez.xbox-theme`):
+- Validate the staged manifest identity (must be `hector-jimenez.vs-xbox-theme`):
   ```powershell
   Select-String -Path dist\vsix-stage\extension.vsixmanifest -Pattern "Identity Id"
   ```
@@ -106,7 +106,7 @@ That runs `scripts/publish.mjs`, which:
 4. Invokes:
    ```text
    VsixPublisher.exe publish ^
-     -payload dist\hector-jimenez.xbox-theme-<version>.vsix ^
+     -payload dist\hector-jimenez.vs-xbox-theme-<version>.vsix ^
      -publishManifest publish\publish-manifest.json ^
      -personalAccessToken $env:VS_MARKETPLACE_PAT ^
      -ignoreWarnings VSIXValidatorWarning01,VSIXValidatorWarning02
@@ -117,7 +117,7 @@ The first publish takes ~30 seconds; subsequent updates are faster. Marketplace 
 
 ### 5. Verify
 
-- Gallery: <https://marketplace.visualstudio.com/items?itemName=hector-jimenez.xbox-theme>
+- Gallery: <https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme>
 - Inside VS 2026 → Extensions → Manage Extensions → **Browse** tab → search "Xbox Themes". The list should show the new version with the full overview pane (publisher badge, "From Visual Studio Marketplace", "View In Browser", "Report Abuse"). A side-loaded install only shows the short `<Description>` — the rich pane only renders for Marketplace installs.
 
 ### 6. Tag the release
@@ -168,9 +168,9 @@ These four strings must all agree. Mismatches are the #1 reason a first publish 
 | Field | Location | Value |
 | ----- | -------- | ----- |
 | Publisher | `scripts/build-vsix.mjs` `PUBLISHER`, `publish-manifest.json` `publisher`, `extension.vsixmanifest` `<Identity Publisher>` | `hector-jimenez` |
-| Identity Id | `scripts/build-vsix.mjs` `IDENTITY_ID`, `extension.vsixmanifest` `<Identity Id>` | `hector-jimenez.xbox-theme` |
+| Identity Id | `scripts/build-vsix.mjs` `IDENTITY_ID`, `extension.vsixmanifest` `<Identity Id>` | `hector-jimenez.vs-xbox-theme` |
 | Internal name | `publish-manifest.json` `identity.internalName` | `xbox-theme` |
-| Marketplace URL slug | derived | `hector-jimenez.xbox-theme` |
+| Marketplace URL slug | derived | `hector-jimenez.vs-xbox-theme` |
 
 Once published, **Identity Id is permanent** — changing it orphans every existing install. See gotcha #6 in `.github/copilot-instructions.md`.
 

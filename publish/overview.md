@@ -1,6 +1,6 @@
 # Xbox Themes for Visual Studio
 
-Six Xbox-inspired color themes for **Visual Studio 2026** (and forward-compatible with VS 2022 17.9+) — a sibling port of the VS Code [`xbox-theme`](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.xbox-theme) sharing the same canonical palette.
+Six Xbox-inspired color themes for **Visual Studio 2026** (and forward-compatible with VS 2022 17.9+) — a sibling port of the VS Code [`xbox-theme`](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme) sharing the same canonical palette.
 
 ![Xbox console generations](https://raw.githubusercontent.com/hectorjjb/vs-xbox-theme/main/images/preview.png)
 

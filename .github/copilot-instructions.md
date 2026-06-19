@@ -148,13 +148,13 @@ binary-decoding the built-in theme pkgdefs.
    target form fails on VS 2026.
 
 6. **Manifest `<Identity Id>` mirrors the VS Code extension ID** —
-   `hector-jimenez.xbox-theme` (lowercase, kebab, `publisher.name` format).
+   `hector-jimenez.vs-xbox-theme` (lowercase, kebab, `publisher.name` format).
    This matches `marketplace.visualstudio.com/items?itemName=…` and the VS
    Code listing for cross-marketplace consistency. The constant lives at the
    top of `build-vsix.mjs` as `IDENTITY_ID`. NEVER change it post-publish —
    doing so orphans every existing install (no update path) and requires a
    brand-new Marketplace listing. The output `.vsix` filename matches the Id:
-   `hector-jimenez.xbox-theme-<version>.vsix`.
+   `hector-jimenez.vs-xbox-theme-<version>.vsix`.
 
 7. **Pkgdef binary blob format** (one per category, after the `Data=hex:` prefix):
    - 12-byte header

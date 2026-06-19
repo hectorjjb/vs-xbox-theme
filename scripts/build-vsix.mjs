@@ -22,11 +22,11 @@ const repo = join(here, "..");
 const PUBLISHER_ID = "hector-jimenez";
 const PUBLISHER_NAME = "Hector Jimenez";
 // Stable Marketplace identity. Mirrors the VS Code extension ID
-// (hector-jimenez.xbox-theme) for cross-marketplace consistency.
+// (hector-jimenez.vs-xbox-theme) for cross-marketplace consistency.
 // NEVER change this — it's the extension's identity across all versions on
 // a user's machine and on the Marketplace. Changing it orphans existing
 // installs (no update path) and requires a brand new listing.
-const IDENTITY_ID = `${PUBLISHER_ID}.xbox-theme`;
+const IDENTITY_ID = `${PUBLISHER_ID}.vs-xbox-theme`;
 const DISPLAY_NAME = "Xbox Themes";
 const DESCRIPTION = "Six Xbox-inspired color themes for Visual Studio 2026: Xbox Original, Xbox 360, Xbox One, Xbox Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
 const MORE_INFO_URL = "https://github.com/hectorjjb/vs-xbox-theme";

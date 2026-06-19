@@ -10,7 +10,7 @@
     - Publisher attribute is the DISPLAY name ("Hector Jimenez"), not the
       slug. Marketplace rejects uploads where Publisher attribute and the
       registered publisher display name differ.
-    - Identity Id mirrors the VS Code extension ID (hector-jimenez.xbox-theme)
+    - Identity Id mirrors the VS Code extension ID (hector-jimenez.vs-xbox-theme)
       for cross-marketplace consistency.
     - Sibling manifest.json + catalog.json files (generated alongside this).
 -->

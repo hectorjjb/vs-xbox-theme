@@ -54,7 +54,7 @@ This VSIX targets the new VS 2026 modernized theme schema. To build from source,
 git clone https://github.com/hectorjjb/vs-xbox-theme.git
 cd vs-xbox-theme
 npm install
-npm run package    # → dist\hector-jimenez.xbox-theme-<version>.vsix
+npm run package    # → dist\hector-jimenez.vs-xbox-theme-<version>.vsix
 ```
 
 To regenerate just the XML (no VSIX):
