@@ -1,7 +1,7 @@
 {
   "_doc": "Publish manifest consumed by VsixPublisher.exe. Marketplace metadata that does NOT live in the VSIX itself goes here. Keep IDs, paths, and categories in sync with extension.vsixmanifest.template + scripts/build-vsix.mjs.",
   "$schema": "http://json.schemastore.org/vsix-publish",
-  "categories": [ "tools", "themes" ],
+  "categories": [ "theme" ],
   "identity": {
     "internalName": "xbox-theme"
   },
