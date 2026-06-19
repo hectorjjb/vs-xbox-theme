@@ -1,47 +1,47 @@
-# Xbox Themes for Visual Studio
+# XBOX Themes for Visual Studio
 
 [![Marketplace](https://img.shields.io/visual-studio-marketplace/v/hector-jimenez.vs-xbox-theme?label=Marketplace&color=107c10)](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/hector-jimenez.vs-xbox-theme?color=107c10)](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme)
 [![License](https://img.shields.io/badge/license-Apache--2.0-107c10.svg)](LICENSE)
 [![VS Version](https://img.shields.io/badge/Visual%20Studio-2026-107c10)](https://visualstudio.microsoft.com/)
 
-Six Xbox-inspired color themes for **Visual Studio 2026** — a sibling port of [`vs-code-xbox-theme`](https://github.com/hectorjjb/vs-code-xbox-theme) sharing the same canonical palette.
+Six XBOX-inspired color themes for **Visual Studio 2026** — a sibling port of [`vs-code-xbox-theme`](https://github.com/hectorjjb/vs-code-xbox-theme) sharing the same canonical palette.
 
-![Xbox console generations](images/preview.png)
+![XBOX console generations](images/preview.png)
 
 ## Themes
 
 **Console editions** (chronological)
 
-- **Xbox Original (2001)** — dark, matte-black base with the translucent neon-green "jewel" accent (`#9bf00b`).
-- **Xbox 360 (2005)** — clean light variant with classic Xbox green accents.
-- **Xbox One (2013)** — the deep-charcoal dashboard look.
-- **Xbox Series X (2020)** — 25th Anniversary edition: neutral warm grays with a soft controller-lime accent.
+- **XBOX Original (2001)** — dark, matte-black base with the translucent neon-green "jewel" accent (`#9bf00b`).
+- **XBOX 360 (2005)** — clean light variant with classic XBOX green accents.
+- **XBOX One (2013)** — the deep-charcoal dashboard look.
+- **XBOX Series X (2020)** — 25th Anniversary edition: neutral warm grays with a soft controller-lime accent.
 
 **High Contrast editions** (accessibility)
 
-- **Xbox High Contrast (Dark)** — pure-black background, white text, vivid green accent (`#2ecc40`, ~9.8:1 contrast).
-- **Xbox High Contrast (Light)** — pure-white background, black text, deep green/blue contrast borders.
+- **XBOX High Contrast (Dark)** — pure-black background, white text, vivid green accent (`#2ecc40`, ~9.8:1 contrast).
+- **XBOX High Contrast (Light)** — pure-white background, black text, deep green/blue contrast borders.
 
 ## Screenshots
 
 | | |
 | :---: | :---: |
-| **Xbox Original** | **Xbox 360** |
-| ![Xbox Original](images/xbox-original.jpg) | ![Xbox 360](images/xbox-360.jpg) |
-| **Xbox One** | **Xbox Series X** |
-| ![Xbox One](images/xbox-one.jpg) | ![Xbox Series X](images/xbox-series-x.jpg) |
-| **Xbox High Contrast (Dark)** | **Xbox High Contrast (Light)** |
-| ![Xbox HC Dark](images/xbox-hc-dark.jpg) | ![Xbox HC Light](images/xbox-hc-light.jpg) |
+| **XBOX Original** | **XBOX 360** |
+| ![XBOX Original](images/xbox-original.jpg) | ![XBOX 360](images/xbox-360.jpg) |
+| **XBOX One** | **XBOX Series X** |
+| ![XBOX One](images/xbox-one.jpg) | ![XBOX Series X](images/xbox-series-x.jpg) |
+| **XBOX High Contrast (Dark)** | **XBOX High Contrast (Light)** |
+| ![XBOX HC Dark](images/xbox-hc-dark.jpg) | ![XBOX HC Light](images/xbox-hc-light.jpg) |
 
 
 ## Install
 
 ### From the Marketplace (recommended)
 
-1. In **Visual Studio 2026** → **Extensions** → **Manage Extensions** → **Browse** tab → search **"Xbox Themes"**.
+1. In **Visual Studio 2026** → **Extensions** → **Manage Extensions** → **Browse** tab → search **"XBOX Themes"**.
 2. Click **Install**, then restart VS when prompted.
-3. **Tools → Theme → \<pick any Xbox theme\>**.
+3. **Tools → Theme → \<pick any XBOX theme\>**.
 
 Or visit the gallery: <https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme>
 

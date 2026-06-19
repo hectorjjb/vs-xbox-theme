@@ -27,8 +27,8 @@ const PUBLISHER_NAME = "Hector Jimenez";
 // a user's machine and on the Marketplace. Changing it orphans existing
 // installs (no update path) and requires a brand new listing.
 const IDENTITY_ID = `${PUBLISHER_ID}.vs-xbox-theme`;
-const DISPLAY_NAME = "Xbox Themes";
-const DESCRIPTION = "Six Xbox-inspired color themes for Visual Studio 2026: Xbox Original, Xbox 360, Xbox One, Xbox Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
+const DISPLAY_NAME = "XBOX Themes";
+const DESCRIPTION = "Six XBOX-inspired color themes for Visual Studio 2026: XBOX Original, XBOX 360, XBOX One, XBOX Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
 const MORE_INFO_URL = "https://github.com/hectorjjb/vs-xbox-theme";
 // 8.3 short-name for the install folder under Common7\IDE\Extensions\.
 // Must be unique per extension; chosen as an 8.3-friendly token.
@@ -241,7 +241,7 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
 
   const st = await stat(vsixPath);
   console.log(`\n✓ ${vsixPath} (${(st.size / 1024).toFixed(1)} KB)`);
-  console.log(`\nInstall: double-click the .vsix, restart VS, then Tools → Theme → Xbox Series X.`);
+  console.log(`\nInstall: double-click the .vsix, restart VS, then Tools → Theme → XBOX Series X.`);
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

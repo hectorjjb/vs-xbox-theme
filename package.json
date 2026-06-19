@@ -1,8 +1,8 @@
 {
   "name": "vs-xbox-theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
-  "description": "Xbox-inspired color themes for Visual Studio 2022 / 2026.",
+  "description": "XBOX-inspired color themes for Visual Studio 2022 / 2026.",
   "type": "module",
   "scripts": {
     "build": "node scripts/build-vstheme.mjs",

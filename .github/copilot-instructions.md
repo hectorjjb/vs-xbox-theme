@@ -1,4 +1,4 @@
-# Copilot Instructions — Xbox Themes for Visual Studio
+# Copilot Instructions — XBOX Themes for Visual Studio
 
 > Repo-scoped context. Travels with the repo so any contributor (including
 > future-Hector on a different machine) gets the full picture immediately.
@@ -7,7 +7,7 @@
 ## What this repo is
 
 A **Visual Studio 2026 theme extension** packaged as a single VSIX containing
-six Xbox-flavored themes. Sibling repo to
+six XBOX-flavored themes. Sibling repo to
 [`vs-code-xbox-theme`](https://github.com/hectorjjb/vs-code-xbox-theme) — same
 canonical palette, different IDE.
 
@@ -15,12 +15,12 @@ The 6 flavors:
 
 | ID | Name | Type | Fallback |
 | -- | ---- | ---- | -------- |
-| `xbox-original` | Xbox Original | dark | Dark |
-| `xbox-360` | Xbox 360 | light | Light |
-| `xbox-one` | Xbox One | dark | Dark |
-| `xbox-series-x` | Xbox Series X | dark | Dark |
-| `xbox-hc-dark` | Xbox High Contrast (Dark) | dark | Dark |
-| `xbox-hc-light` | Xbox High Contrast (Light) | light | Light |
+| `xbox-original` | XBOX Original | dark | Dark |
+| `xbox-360` | XBOX 360 | light | Light |
+| `xbox-one` | XBOX One | dark | Dark |
+| `xbox-series-x` | XBOX Series X | dark | Dark |
+| `xbox-hc-dark` | XBOX High Contrast (Dark) | dark | Dark |
+| `xbox-hc-light` | XBOX High Contrast (Light) | light | Light |
 
 ## Architecture (read this first)
 
@@ -100,7 +100,7 @@ To add a new category, see the workflow in `docs/COVERAGE.md` (decode → add to
 
 ```powershell
 npm run build              # generate all 6 .vstheme XML files in dist/
-npm run build:series-x     # generate only Xbox Series X
+npm run build:series-x     # generate only XBOX Series X
 npm run package            # full pipeline: build → compile → stage → zip → dist/*.vsix
 npm run publish            # upload latest dist/*.vsix to Marketplace (needs $env:VS_MARKETPLACE_PAT)
 ```

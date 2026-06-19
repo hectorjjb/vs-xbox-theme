@@ -80,11 +80,11 @@ Produces `dist\hector-jimenez.vs-xbox-theme-<version>.vsix`. Sanity check:
 
 ### 3. Smoke-test locally
 
-Uninstall any previously-installed Xbox Themes from VS first (VS aggressively caches pkgdefs by version — reinstalling over the same version usually no-ops). Then:
+Uninstall any previously-installed XBOX Themes from VS first (VS aggressively caches pkgdefs by version — reinstalling over the same version usually no-ops). Then:
 
 1. Double-click the `.vsix`
 2. Restart VS
-3. Switch to each Xbox theme via **Tools → Theme**
+3. Switch to each XBOX theme via **Tools → Theme**
 
 Confirm:
 - Title bar / menu bar / status bar all green-tinted (active state).
@@ -118,7 +118,7 @@ The first publish takes ~30 seconds; subsequent updates are faster. Marketplace 
 ### 5. Verify
 
 - Gallery: <https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme>
-- Inside VS 2026 → Extensions → Manage Extensions → **Browse** tab → search "Xbox Themes". The list should show the new version with the full overview pane (publisher badge, "From Visual Studio Marketplace", "View In Browser", "Report Abuse"). A side-loaded install only shows the short `<Description>` — the rich pane only renders for Marketplace installs.
+- Inside VS 2026 → Extensions → Manage Extensions → **Browse** tab → search "XBOX Themes". The list should show the new version with the full overview pane (publisher badge, "From Visual Studio Marketplace", "View In Browser", "Report Abuse"). A side-loaded install only shows the short `<Description>` — the rich pane only renders for Marketplace installs.
 
 ### 6. Tag the release
 

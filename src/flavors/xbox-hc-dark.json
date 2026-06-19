@@ -1,7 +1,7 @@
 {
   "_doc": "High Contrast Dark — pure black base, vivid green accent. accentFg = black (vivid green is bright).",
   "id": "xbox-hc-dark",
-  "name": "Xbox High Contrast (Dark)",
+  "name": "XBOX High Contrast (Dark)",
   "guid": "{F4A2C8E1-5B7D-4F3A-8C6E-1D9B2A5F7E3C}",
   "type": "dark",
   "fallbackId": "{1ded0138-47ce-435e-84ef-9ec1f439b749}",

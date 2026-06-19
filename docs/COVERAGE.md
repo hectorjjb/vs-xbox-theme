@@ -1,6 +1,6 @@
 # Token Coverage Matrix
 
-> Snapshot of which Visual Studio 2026 theme categories the Xbox Themes extension overrides, and how much of each category is overridden. Anything we don't override is inherited from the **FallbackId** theme (`Microsoft Visual Studio Dark` for the dark flavors, `Microsoft Visual Studio Light` for `xbox-360` and `xbox-hc-light`).
+> Snapshot of which Visual Studio 2026 theme categories the XBOX Themes extension overrides, and how much of each category is overridden. Anything we don't override is inherited from the **FallbackId** theme (`Microsoft Visual Studio Dark` for the dark flavors, `Microsoft Visual Studio Light` for `xbox-360` and `xbox-hc-light`).
 >
 > Token counts come from decoding the shipping VS 2026 pkgdef files (`Theme.Dark.pkgdef`, `EditorColors.pkgdef`, `Shell.Dark.pkgdef`) with `scripts/decode-pkgdef.mjs`. Override counts come from the compiled pkgdef of `xbox-series-x.pkgdef`. The numbers are identical across the six flavors — only the palette resolves differently.
 >

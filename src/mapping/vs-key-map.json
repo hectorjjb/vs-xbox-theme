@@ -177,7 +177,7 @@
   },
   "Output Window": {
     "_guid": "{9973efdf-317d-431c-8bc1-5e88cbfd4f7f}",
-    "_doc": "Output tool window (Build/Debug/General). Without overriding this, build output keeps the fallback theme's beige/grey backdrop while the editor goes Xbox-green. OutputError/OutputHeading/OutputVerbose color the colored runs MSBuild + the debugger emit.",
+    "_doc": "Output tool window (Build/Debug/General). Without overriding this, build output keeps the fallback theme's beige/grey backdrop while the editor goes XBOX-green. OutputError/OutputHeading/OutputVerbose color the colored runs MSBuild + the debugger emit.",
     "Plain Text":           { "background": "$bgDeep", "foreground": "$fg" },
     "Selected Text":        { "background": "$alphaMed", "foreground": "$fg" },
     "Inactive Selected Text": { "background": "$alphaLow", "foreground": "$fg" },

@@ -1,19 +1,26 @@
 # Changelog
 
+## 0.1.1 — 2026-06-19
+
+Display-name patch — no token or theme functionality changed.
+
+- **Brand styling:** "Xbox" → **"XBOX"** (all-caps) everywhere it appears in user-visible prose: the Marketplace display name, the per-flavor theme names shown in **Tools → Theme** (`XBOX Original`, `XBOX 360`, `XBOX One`, `XBOX Series X`, `XBOX High Contrast (Dark)`, `XBOX High Contrast (Light)`), the README, the gallery overview, and the in-VSIX description. Matches the casing used by the sibling VS Code extension's theme labels and aligns both Marketplace listings.
+- Extension ID (`hector-jimenez.vs-xbox-theme`), Marketplace URL, flavor file names, and all internal identifiers remain unchanged. Existing installs receive this as a normal update.
+
 ## 0.1.0 — 2026-06-19
 
 First public release on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=hector-jimenez.vs-xbox-theme).
 
 ### Themes (6)
 
-All six Xbox flavors shipping in a single VSIX, each declaring a `FallbackId` so unspecified tokens inherit from VS's built-in Light or Dark base theme:
+All six XBOX flavors shipping in a single VSIX, each declaring a `FallbackId` so unspecified tokens inherit from VS's built-in Light or Dark base theme:
 
-- **Xbox Original** — dark, neon-green accent (2001 hardware translucent jewel)
-- **Xbox 360** — light, classic Xbox green (Light fallback)
-- **Xbox One** — dark, dashboard-charcoal look
-- **Xbox Series X** — dark, 25th Anniversary lime accent
-- **Xbox High Contrast (Dark)** — pure black + vivid green (~9.8:1 contrast)
-- **Xbox High Contrast (Light)** — pure white + deep green
+- **XBOX Original** — dark, neon-green accent (2001 hardware translucent jewel)
+- **XBOX 360** — light, classic XBOX green (Light fallback)
+- **XBOX One** — dark, dashboard-charcoal look
+- **XBOX Series X** — dark, 25th Anniversary lime accent
+- **XBOX High Contrast (Dark)** — pure black + vivid green (~9.8:1 contrast)
+- **XBOX High Contrast (Light)** — pure white + deep green
 
 ### Token coverage
 
