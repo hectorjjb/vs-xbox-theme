@@ -19,15 +19,16 @@ import { spawnSync } from "node:child_process";
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, "..");
 
-const PUBLISHER = "hector-jimenez";
+const PUBLISHER_ID = "hector-jimenez";
+const PUBLISHER_NAME = "Hector Jimenez";
 // Stable Marketplace identity. Mirrors the VS Code extension ID
 // (hector-jimenez.xbox-theme) for cross-marketplace consistency.
 // NEVER change this — it's the extension's identity across all versions on
 // a user's machine and on the Marketplace. Changing it orphans existing
 // installs (no update path) and requires a brand new listing.
-const IDENTITY_ID = `${PUBLISHER}.xbox-theme`;
+const IDENTITY_ID = `${PUBLISHER_ID}.xbox-theme`;
 const DISPLAY_NAME = "Xbox Themes";
-const DESCRIPTION = "Six Xbox-inspired color themes for Visual Studio 2026 (and 2022 17.9+): Xbox Original, Xbox 360, Xbox One, Xbox Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
+const DESCRIPTION = "Six Xbox-inspired color themes for Visual Studio 2026: Xbox Original, Xbox 360, Xbox One, Xbox Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
 const MORE_INFO_URL = "https://github.com/hectorjjb/vs-xbox-theme";
 // 8.3 short-name for the install folder under Common7\IDE\Extensions\.
 // Must be unique per extension; chosen as an 8.3-friendly token.
@@ -143,7 +144,7 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
   const manifest = tpl
     .replace(/{{IDENTITY_ID}}/g, IDENTITY_ID)
     .replace(/{{VERSION}}/g, version)
-    .replace(/{{PUBLISHER}}/g, PUBLISHER)
+    .replace(/{{PUBLISHER}}/g, PUBLISHER_NAME)
     .replace(/{{DISPLAY_NAME}}/g, DISPLAY_NAME)
     .replace(/{{DESCRIPTION}}/g, DESCRIPTION)
     .replace(/{{MORE_INFO_URL}}/g, MORE_INFO_URL)

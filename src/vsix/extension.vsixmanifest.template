@@ -3,7 +3,13 @@
   VSIX manifest. {{TOKEN}} placeholders are replaced by scripts/build-vsix.mjs.
 
   VS 2026 requirements (verified against MadsKristensen/BlueSteel reference):
-    - Per-architecture <InstallationTarget> with <ProductArchitecture>.
+    - Lower-bound version 17.14 (VS 2026 compat model: lower bound = API
+      version, upper bound ignored. See aka.ms/vs2026extensioncompat.)
+    - Single <InstallationTarget> per SKU; no <ProductArchitecture> since
+      per-arch payloads are not needed when targeting 17.x.
+    - Publisher attribute is the DISPLAY name ("Hector Jimenez"), not the
+      slug. Marketplace rejects uploads where Publisher attribute and the
+      registered publisher display name differ.
     - Identity Id mirrors the VS Code extension ID (hector-jimenez.xbox-theme)
       for cross-marketplace consistency.
     - Sibling manifest.json + catalog.json files (generated alongside this).
@@ -21,24 +27,9 @@
     <ExtensionType>VSSDK</ExtensionType>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0, 19.0)">
-      <ProductArchitecture>amd64</ProductArchitecture>
-    </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0, 19.0)">
-      <ProductArchitecture>arm64</ProductArchitecture>
-    </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[18.0, 19.0)">
-      <ProductArchitecture>amd64</ProductArchitecture>
-    </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[18.0, 19.0)">
-      <ProductArchitecture>arm64</ProductArchitecture>
-    </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[18.0, 19.0)">
-      <ProductArchitecture>amd64</ProductArchitecture>
-    </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[18.0, 19.0)">
-      <ProductArchitecture>arm64</ProductArchitecture>
-    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.14,)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.14,)" />
   </Installation>
   <Prerequisites>
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
