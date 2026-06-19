@@ -20,15 +20,17 @@ const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, "..");
 
 const PUBLISHER = "hector-jimenez";
-// Stable per-extension GUID. NEVER change this — it's the extension's identity
-// across all versions on a user's machine and on the Marketplace.
-const EXT_GUID = "8c1f4d2e-3a5b-4c6d-9e7f-1b2a3c4d5e6f";
-const IDENTITY_ID = `XboxThemes.${EXT_GUID}`;
+// Stable Marketplace identity. Mirrors the VS Code extension ID
+// (hector-jimenez.xbox-theme) for cross-marketplace consistency.
+// NEVER change this — it's the extension's identity across all versions on
+// a user's machine and on the Marketplace. Changing it orphans existing
+// installs (no update path) and requires a brand new listing.
+const IDENTITY_ID = `${PUBLISHER}.xbox-theme`;
 const DISPLAY_NAME = "Xbox Themes";
 const DESCRIPTION = "Six Xbox-inspired color themes for Visual Studio 2026 (and 2022 17.9+): Xbox Original, Xbox 360, Xbox One, Xbox Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
 const MORE_INFO_URL = "https://github.com/hectorjjb/vs-xbox-theme";
 // 8.3 short-name for the install folder under Common7\IDE\Extensions\.
-// Must be unique per extension; derived deterministically from EXT_GUID.
+// Must be unique per extension; chosen as an 8.3-friendly token.
 const EXT_DIR_SHORTNAME = "xboxthme.001";
 
 const VS_INSTALL_ROOTS = [
@@ -105,10 +107,8 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
   const version = await loadVersion();
   const dist = join(repo, "dist");
   const stage = join(dist, "vsix-stage");
-  // Filename: clean publisher.name-version (no GUID). The GUID still lives
-  // inside IDENTITY_ID for the manifest's <Identity Id>, where it provides
-  // global uniqueness independent of publisher namespace.
-  const vsixName = `${PUBLISHER}.XboxThemes-${version}.vsix`;
+  // Filename: publisher.name-version, matching the Marketplace itemName.
+  const vsixName = `${IDENTITY_ID}-${version}.vsix`;
   const vsixPath = join(dist, vsixName);
   await rm(stage, { recursive: true, force: true });
   await mkdir(join(stage, "Themes"), { recursive: true });

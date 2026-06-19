@@ -4,7 +4,8 @@
 
   VS 2026 requirements (verified against MadsKristensen/BlueSteel reference):
     - Per-architecture <InstallationTarget> with <ProductArchitecture>.
-    - Identity Id must include a stable GUID suffix for uniqueness.
+    - Identity Id mirrors the VS Code extension ID (hector-jimenez.xbox-theme)
+      for cross-marketplace consistency.
     - Sibling manifest.json + catalog.json files (generated alongside this).
 -->
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">

@@ -39,7 +39,7 @@ Edit `package.json` `"version"` (semver). The build script reads from there and 
 npm run package
 ```
 
-Produces `dist\hector-jimenez.XboxThemes-<version>.vsix`. Sanity check:
+Produces `dist\hector-jimenez.xbox-theme-<version>.vsix`. Sanity check:
 - File size around 1 MB (the bulk is `images/preview.png`).
 - Decode any one pkgdef and confirm all 5 categories present:
   ```powershell
@@ -63,7 +63,7 @@ That runs `scripts/publish.mjs`, which calls:
 
 ```text
 VsixPublisher.exe publish \
-  -payload  dist\hector-jimenez.XboxThemes-<version>.vsix \
+  -payload  dist\hector-jimenez.xbox-theme-<version>.vsix \
   -publishManifest publish\publish-manifest.json \
   -personalAccessToken $env:VS_MARKETPLACE_PAT
 ```
@@ -72,7 +72,7 @@ The first publish takes ~30 seconds; subsequent updates are faster. Marketplace 
 
 ### 5. Verify
 
-- `https://marketplace.visualstudio.com/items?itemName=hector-jimenez.XboxThemes`
+- `https://marketplace.visualstudio.com/items?itemName=hector-jimenez.xbox-theme`
 - Inside VS 2026 → Extensions → Manage Extensions → Browse tab → search "Xbox Themes". The list view should show the new version.
 
 ### 6. Tag the release

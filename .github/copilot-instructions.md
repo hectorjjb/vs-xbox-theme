@@ -135,12 +135,14 @@ binary-decoding the built-in theme pkgdefs.
    `<ProductArchitecture>amd64</ProductArchitecture>` (also `arm64`). The single-
    target form fails on VS 2026.
 
-6. **Manifest `<Identity Id>` should include a stable GUID suffix** (e.g.
-   `XboxThemes.8c1f4d2e-3a5b-4c6d-9e7f-1b2a3c4d5e6f`) for global uniqueness
-   independent of publisher namespace. The constant lives at the top of
-   `build-vsix.mjs`. The output `.vsix` filename is the cleaner
-   `<publisher>.XboxThemes-<version>.vsix` (no GUID) — the GUID belongs in
-   the manifest, not the filename.
+6. **Manifest `<Identity Id>` mirrors the VS Code extension ID** —
+   `hector-jimenez.xbox-theme` (lowercase, kebab, `publisher.name` format).
+   This matches `marketplace.visualstudio.com/items?itemName=…` and the VS
+   Code listing for cross-marketplace consistency. The constant lives at the
+   top of `build-vsix.mjs` as `IDENTITY_ID`. NEVER change it post-publish —
+   doing so orphans every existing install (no update path) and requires a
+   brand-new Marketplace listing. The output `.vsix` filename matches the Id:
+   `hector-jimenez.xbox-theme-<version>.vsix`.
 
 7. **Pkgdef binary blob format** (one per category, after the `Data=hex:` prefix):
    - 12-byte header
