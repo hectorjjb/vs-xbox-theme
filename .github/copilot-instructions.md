@@ -231,9 +231,25 @@ install roots so they work on Insiders / Preview / Enterprise / Pro / Community.
 
 ## Open ideas / not yet done
 
-- **Folder-glyph recoloring (Option B).** Would require a sibling
-  `.imagemanifest` shipped in the same VSIX with green-tinted folder open/closed
-  SVGs. Doable without C# code. Skipped for v0.1 to keep scope tight.
+- **Folder-glyph recoloring — DEAD END (verified 2026-06-19).** Cannot be done
+  in a theme-only / pkgdef-only VSIX. We tried: shipping a `.imagemanifest`
+  registering `ImageCatalogGuid` + canonical moniker IDs (`FolderClosed`=1294,
+  `Solution`=2855, etc.) against recolored SVGs at the VSIX root, with the
+  `<Asset Type="Microsoft.VisualStudio.ImageManifest">` declaration in the
+  manifest. VS discovered the file (path appeared in
+  `%LOCALAPPDATA%\Microsoft\VisualStudio\18.0_*\ImageLibrary\ImageLibrary.cache`)
+  but loaded **zero** of the Image entries — the cache still pointed
+  exclusively at the built-in `FolderClosed.xaml`/`.png`. Reason: VS's image
+  service uses **"first manifest wins"** semantics
+  (learn.microsoft.com/visualstudio/extensibility/image-service-and-catalog),
+  Microsoft's catalog loads first, and any later registration of the same
+  Guid+ID is silently dropped. `AllowColorInversion`, `<Source Background>`,
+  and `<HighPriority>` do not change this. The only viable folder-recolor path
+  is a full C# VSPackage that hooks `IVsHierarchy::SetProperty` with
+  `VSHPROPID5_ProjectTreeImageMonikers` to inject custom monikers per node at
+  runtime (which is also what an "Option C — file-type icons" extension needs).
+  If we ever want this, ship as a **separate opt-in extension**, not bolted
+  onto `vs-xbox-theme`.
 - **File-type icons (Option C).** Would require a real C#/MEF VS extension
   registering `IVsImageService` monikers. Out of scope.
 - **CI build + auto-publish.** Hector explicitly wants manual publish only — do

@@ -27,7 +27,7 @@ const PUBLISHER_NAME = "Hector Jimenez";
 // a user's machine and on the Marketplace. Changing it orphans existing
 // installs (no update path) and requires a brand new listing.
 const IDENTITY_ID = `${PUBLISHER_ID}.vs-xbox-theme`;
-const DISPLAY_NAME = "XBOX Themes";
+const DISPLAY_NAME = "XBOX Themes for VS";
 const DESCRIPTION = "Six XBOX-inspired color themes for Visual Studio 2026: XBOX Original, XBOX 360, XBOX One, XBOX Series X, plus High Contrast Dark and Light. Pick one from Tools \u2192 Theme.";
 const MORE_INFO_URL = "https://github.com/hectorjjb/vs-xbox-theme";
 // 8.3 short-name for the install folder under Common7\IDE\Extensions\.
@@ -154,6 +154,7 @@ ${VS_INSTALL_ROOTS.map(r => "  " + join(r, COMPILER_REL)).join("\n")}
   // 4. Copy [Content_Types].xml and LICENSE
   await copyFile(join(repo, "src", "vsix", "[Content_Types].xml"), join(stage, "[Content_Types].xml"));
   await copyFile(join(repo, "LICENSE"), join(stage, "LICENSE.txt"));
+
 
   // 4a. Copy marketing images referenced by the manifest (icon + preview only).
   // The 6 per-flavor screenshots in images/*.jpg are README-only and would

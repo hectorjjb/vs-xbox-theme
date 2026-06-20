@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 — 2026-06-19
+
+- **Marketplace display name:** `XBOX Themes` → **`XBOX Themes for VS`** to better differentiate from the VS Code sibling on shared search results and to mirror the README title convention used by `vs-code-xbox-theme` (`XBOX Themes for VS Code`). Extension ID, URL, and theme labels remain unchanged.
+- **Docs:** Recorded a verified dead end in `.github/copilot-instructions.md` — overriding built-in VS folder/project glyphs via `.imagemanifest` is not possible from a theme-only VSIX (VS's image service uses "first manifest wins" semantics and silently drops later registrations). Documented so future iterations don't re-explore this path.
+
 ## 0.1.1 — 2026-06-19
 
 Display-name patch — no token or theme functionality changed.
